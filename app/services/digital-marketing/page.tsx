@@ -2,17 +2,13 @@ import { Metadata } from "next"
 import { TopBar } from "@/components/layout/top-bar"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { ServiceBanner } from "@/components/services/service-banner"
+// import { ServiceBanner } from "@/components/services/banners/automation-banner"
 import { ServiceSection } from "@/components/services/service-section"
 import { ServiceCTA } from "@/components/services/service-cta"
 import { 
   Megaphone, 
-  Search, 
-  Share2, 
-  Target, 
-  Users, 
-  Mail 
 } from "lucide-react"
+import { DigitalMarketingBanner } from "@/components/services/banners/digital-banner"
 
 export const metadata: Metadata = {
   title: "Digital Marketing Services | Skymark Digital",
@@ -21,7 +17,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    icon: Search,
+    image: "/images/services/banner.jpg",
     title: "Search Engine Optimization (SEO)",
     description: "Dominate search results with our data-driven SEO strategies. We optimize your website to rank higher on Google and other search engines, driving organic traffic and increasing visibility.",
     features: [
@@ -34,7 +30,7 @@ const services = [
     ],
   },
   {
-    icon: Share2,
+    image: "/images/services/banner.jpg",
     title: "Social Media Marketing",
     description: "Build a powerful social media presence that engages your audience and drives results. Our social media experts create compelling content and strategies across all major platforms.",
     features: [
@@ -47,7 +43,7 @@ const services = [
     ],
   },
   {
-    icon: Target,
+    image: "/images/services/banner.jpg",
     title: "Google & Meta Advertising",
     description: "Maximize your ROI with targeted advertising campaigns on Google and Meta platforms. Our certified experts create and optimize campaigns that deliver measurable results.",
     features: [
@@ -60,7 +56,7 @@ const services = [
     ],
   },
   {
-    icon: Users,
+    image: "/images/services/banner.jpg",
     title: "Lead Generation",
     description: "Generate high-quality leads that convert into customers. Our lead generation strategies combine multiple channels to create a consistent flow of potential clients.",
     features: [
@@ -73,7 +69,7 @@ const services = [
     ],
   },
   {
-    icon: Mail,
+    image: "/images/services/banner.jpg",
     title: "Email Marketing",
     description: "Nurture leads and retain customers with strategic email marketing campaigns. We create personalized email sequences that drive engagement and conversions.",
     features: [
@@ -92,17 +88,10 @@ export default function DigitalMarketingPage() {
     <main className="min-h-screen bg-white">
       <TopBar />
       <Header />
-      
-      <ServiceBanner
-        title="Digital Marketing"
-        description="Drive growth and maximize your online presence with our comprehensive digital marketing solutions tailored to your business needs."
-        icon={Megaphone}
-        breadcrumb="Digital Marketing"
-        gradient="gradient-digital"
-      />
+      <DigitalMarketingBanner />
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 relative">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[#0ea5e9] font-semibold uppercase tracking-wider text-sm">
               Our Services
@@ -122,7 +111,7 @@ export default function DigitalMarketingPage() {
                 key={index}
                 title={service.title}
                 description={service.description}
-                icon={service.icon}
+                image={service.image}
                 features={service.features}
                 reversed={index % 2 !== 0}
               />

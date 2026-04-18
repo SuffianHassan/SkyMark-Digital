@@ -9,6 +9,7 @@ import {
   ShoppingCart,
   GraduationCap,
 } from "lucide-react"
+import Link from "next/link"
 
 const industries = [
   { icon: Building2, title: "Real Estate", desc: "Property & lead systems" },
@@ -44,12 +45,12 @@ export function Industries() {
   }, [paused])
 
   return (
-    <section className="relative py-20 md:py-28 lg:py-28 bg-gradient-to-r from-[#fab925]/30 to-[#c40d40]/15 overflow-hidden">
+    <section className="relative py-20 md:py-28 lg:py-28 bg-gradient-to-r from-[#fab925]/30 to-[#c40d40]/25 overflow-hidden">
 
       <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
 
       <div className="lg:hidden text-center mb-10">
-      <h2 className="text-3xl font-bold tracking-[0.3em] bg-gradient-to-r from-[#fab925] to-[#c40d40] bg-clip-text">
+      <h2 className="text-3xl font-bold tracking-[0.3em] text-transparent bg-gradient-to-r from-[#fab925] to-[#c40d40] bg-clip-text">
         SKYMARK DIGITAL
       </h2>
       </div>
@@ -89,10 +90,10 @@ export function Industries() {
 
         <div className="hidden lg:flex items-center justify-center">
           <div className="text-center rotate-90 whitespace-nowrap leading-[1.2]">
-            <span className="block text-7xl font-bold text-transparent stroke-text tracking-[0.2em]">
+            <span className="block text-8xl font-bold text-transparent stroke-text tracking-[0.2em]">
               Skymark
             </span>
-            <span className="block text-7xl font-bold text-transparent stroke-text tracking-[0.2em] mt-2">
+            <span className="block text-8xl font-bold text-transparent stroke-text tracking-[0.2em] mt-2">
               Digital
             </span>
           </div>
@@ -110,10 +111,11 @@ export function Industries() {
           experiences, and achieve sustainable growth. Our approach combines innovation, 
           strategy, and technology to ensure real, measurable results.
           </p>
-
+          <Link href="/#contact">
           <button className="bg-[#fe9a00] px-6 py-3 rounded-full shadow-md hover:scale-105 transition-all">
             Let’s Talk →
           </button>
+          </Link>
         </div>
 
       </div>

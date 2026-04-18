@@ -610,8 +610,8 @@
   width: 100%;
   height: 100%;
   background: repeating-radial-gradient(circle at center,
-      rgba(14, 165, 233, 0.15) 0px,
-      rgba(14, 165, 233, 0.15) 1px,
+      rgba(10, 10, 10, 0.3) 0px,
+      rgba(14, 165, 233, 0.5) 1px,
       transparent 2px,
       transparent 20px),
     repeating-conic-gradient(from 0deg,
@@ -636,4 +636,86 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(10px, -15px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+/* Variations for natural motion */
+.float-slow {
+  animation: float 14s ease-in-out infinite;
+}
+
+.float-medium {
+  animation: float 10s ease-in-out infinite;
+}
+
+.float-fast {
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateY(-12px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 0.6;
+  }
+}
+
+.animate-float {
+  animation: float linear infinite;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 18s linear infinite;
+}
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-20px);
+  }
+}
+
+.wave-animate {
+  animation: waveMove 12s linear infinite alternate;
+}
+
+
+.wave-shadow {
+  filter: drop-shadow(0 -12px 30px rgba(0, 0, 0, 0.12));
 }

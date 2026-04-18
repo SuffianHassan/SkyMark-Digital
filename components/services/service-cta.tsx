@@ -14,9 +14,9 @@ export function ServiceCTA({
   description = "Contact us today to discuss how our services can help transform your business." 
 }: ServiceCTAProps) {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="gradient-hero rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
+    <section className=" bg-white">
+      <div className="container mx-auto">
+        <div className="gradient-hero p-10 md:p-16 text-center relative overflow-hidden">
           {/* Mesh overlay */}
           <div className="absolute inset-0 mesh-overlay rounded-3xl" />
           

@@ -7,22 +7,21 @@ export function Contact() {
     <section className="py-20 bg-white relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
 
-        {/* Small dots */}
-        <div className="absolute w-2 h-2 bg-[#0ea5e9]/30 rounded-full top-[10%] left-[15%]" />
-        <div className="absolute w-2 h-2 bg-[#0ea5e9]/20 rounded-full top-[25%] left-[70%]" />
-        <div className="absolute w-2 h-2 bg-[#0ea5e9]/25 rounded-full top-[60%] left-[20%]" />
-        <div className="absolute w-2 h-2 bg-[#0ea5e9]/20 rounded-full top-[75%] left-[80%]" />
-        <div className="absolute w-2 h-2 bg-[#0ea5e9]/30 rounded-full top-[40%] left-[50%]" />
+        <div className="absolute w-2 h-2 bg-[#0ea5e9]/30 rounded-full top-[10%] left-[15%] float-fast" style={{ animationDelay: "2s" }} />
+        <div className="absolute w-2 h-2 bg-[#0ea5e9]/20 rounded-full top-[25%] left-[70%] float-fast" style={{ animationDelay: "2s" }}  />
+        <div className="absolute w-2 h-2 bg-[#0ea5e9]/25 rounded-full top-[60%] left-[20%] float-fast" style={{ animationDelay: "2s" }} />
+        <div className="absolute w-2 h-2 bg-[#0ea5e9]/20 rounded-full top-[75%] left-[80%] float-fast" style={{ animationDelay: "2s" }} />
+        <div className="absolute w-2 h-2 bg-[#0ea5e9]/30 rounded-full top-[40%] left-[50%] float-fast" style={{ animationDelay: "2s" }} />
 
-        {/* Medium dots */}
-        <div className="absolute w-4 h-4 bg-[#0ea5e9]/20 rounded-full top-[15%] left-[85%]" />
-        <div className="absolute w-4 h-4 bg-[#0ea5e9]/25 rounded-full top-[70%] left-[10%]" />
+        <div className="absolute w-4 h-4 bg-[#0ea5e9]/20 rounded-full top-[15%] left-[85%] float-slow" style={{ animationDelay: "2s" }} />
+        <div className="absolute w-4 h-4 bg-[#0ea5e9]/25 rounded-full top-[70%] left-[10%] float-slow" style={{ animationDelay: "2s" }} />
 
-        {/* Big soft dots */}
-        <div className="absolute w-24 h-24 bg-[#0ea5e9]/10 rounded-full blur-xl top-[-40px] left-[-40px]" />
-        <div className="absolute w-32 h-32 bg-[#0ea5e9]/10 rounded-full blur-2xl bottom-[-60px] right-[-60px]" />
+        <div className="absolute w-24 h-24 bg-[#0ea5e9]/10 rounded-full blur-xl top-[-40px] left-[-40px] float-slow" style={{ animationDelay: "2s" }} />
+        <div className="absolute w-32 h-32 bg-[#0ea5e9]/10 rounded-full blur-2xl bottom-[-60px] right-[-60px] float-slow" style={{ animationDelay: "2s" }} />
 
       </div>
+      
+
 
       <div className="container mx-auto px-4">
 

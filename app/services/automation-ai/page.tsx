@@ -2,15 +2,9 @@ import { Metadata } from "next"
 import { TopBar } from "@/components/layout/top-bar"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { ServiceBanner } from "@/components/services/service-banner"
+import { AutomationBanner } from "@/components/services/banners/automation-banner"
 import { ServiceSection } from "@/components/services/service-section"
 import { ServiceCTA } from "@/components/services/service-cta"
-// import { 
-//   Bot, 
-//   Cpu, 
-//   Settings, 
-//   Database 
-// } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Automation & AI Solutions | Skymark Digital",
@@ -19,7 +13,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    icon: "cpu",
+    image: "/images/services/aisolutions.jpg",
     title: "AI Automation Solutions",
     description: "Leverage the power of artificial intelligence to automate repetitive tasks and make data-driven decisions. Our AI solutions help streamline operations and boost productivity.",
     features: [
@@ -32,7 +26,7 @@ const services = [
     ],
   },
   {
-    icon: "settings",
+    image: "/images/services/aioperations.jpg",
     title: "Smart Operations & Management",
     description: "Optimize your business operations with intelligent management systems. We implement smart solutions that enhance efficiency and reduce operational costs.",
     features: [
@@ -45,7 +39,7 @@ const services = [
     ],
   },
   {
-    icon: "database",
+    image: "/images/services/aierp.jpg",
     title: "ERP Solutions",
     description: "Integrate all your business processes with comprehensive ERP solutions. We help you select, implement, and customize ERP systems that fit your unique needs.",
     features: [
@@ -64,17 +58,10 @@ export default function AutomationAIPage() {
     <main className="min-h-screen bg-white">
       <TopBar />
       <Header />
-      
-      <ServiceBanner
-        title="Automation & AI"
-        description="Transform your business operations with cutting-edge AI automation solutions that drive efficiency and innovation."
-        icon="bot"
-        breadcrumb="Automation & AI"
-        gradient="gradient-automation"
-      />
+      <AutomationBanner />
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 relative">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[#0ea5e9] font-semibold uppercase tracking-wider text-sm">
               Our Solutions
@@ -94,7 +81,7 @@ export default function AutomationAIPage() {
                 key={index}
                 title={service.title}
                 description={service.description}
-                icon={service.icon}
+                image={service.image}
                 features={service.features}
                 reversed={index % 2 !== 0}
               />

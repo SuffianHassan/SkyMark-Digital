@@ -24,15 +24,6 @@ const services = [
     image: "/images/marketing.jpg"
   },
   {
-    icon: Bot,
-    title: "Automation & AI",
-    description:
-      "AI automation solutions, smart operations management, and comprehensive ERP solutions to streamline your business processes.",
-    href: "/services/automation-ai",
-    color: "bg-[#374151]",
-    image: "/images/automation.png"
-  },
-  {
     icon: Code,
     title: "Web Development",
     description:
@@ -40,15 +31,6 @@ const services = [
     href: "/services/web-development",
     color: "bg-[#f59e0b]",
     image: "/images/web.png"
-  },
-  {
-    icon: Shield,
-    title: "IT & Security",
-    description:
-      "Robust cyber security services, system & network management, and technical consulting to protect your digital assets.",
-    href: "/services/it-security",
-    color: "bg-[#1f2937]",
-    image: "/images/security.jfif"
   },
   {
     icon: Palette,
@@ -59,6 +41,26 @@ const services = [
     color: "bg-[#e11d48]",
     image: "/images/creative.png"
   },
+  {
+    icon: Bot,
+    title: "Automation & AI",
+    description:
+      "AI automation solutions, smart operations management, and comprehensive ERP solutions to streamline your business processes.",
+    href: "/services/automation-ai",
+    color: "bg-[#374151]",
+    image: "/images/automation.png"
+  },
+  
+  {
+    icon: Shield,
+    title: "IT & Security",
+    description:
+      "Robust cyber security services, system & network management, and technical consulting to protect your digital assets.",
+    href: "/services/it-security",
+    color: "bg-[#1f2937]",
+    image: "/images/security.jfif"
+  },
+  
   {
     icon: Briefcase,
     title: "Business Services",

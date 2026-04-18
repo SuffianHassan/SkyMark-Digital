@@ -26,7 +26,7 @@ const navLinks = [
   { name: "About Us", href: "/#about" },
   { name: "Services", href: "/#services", hasDropdown: true },
   { name: "Testimonials", href: "/#testimonials" },
-  { name: "Contact Us", href: "/#contact" },
+  { name: "Contact Us", href: "/#contact" }
 ]
 
 export function Header() {
@@ -43,7 +43,7 @@ export function Header() {
               alt="Skymark Digital"
               width={180}
               height={60}
-              className="h-30 w-auto"
+              className="h-15 w-auto"
               priority
             />
           </Link>
