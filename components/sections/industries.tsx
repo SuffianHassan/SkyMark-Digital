@@ -44,12 +44,12 @@ export function Industries() {
   }, [paused])
 
   return (
-    <section className="relative py-20 md:py-28 lg:py-28 bg-gradient-to-r from-[#fab925]/10 to-[#c40d40]/10 overflow-hidden">
+    <section className="relative py-20 md:py-28 lg:py-28 bg-gradient-to-r from-[#fab925]/30 to-[#c40d40]/15 overflow-hidden">
 
       <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
 
       <div className="lg:hidden text-center mb-10">
-      <h2 className="text-3xl font-bold tracking-[0.2em] text-transparent bg-gradient-to-r from-[#fab925] to-[#c40d40] bg-clip-text">
+      <h2 className="text-3xl font-bold tracking-[0.3em] bg-gradient-to-r from-[#fab925] to-[#c40d40] bg-clip-text">
         SKYMARK DIGITAL
       </h2>
       </div>
@@ -70,7 +70,7 @@ export function Industries() {
                 className="bg-[#f3f4f6] border border-gray-200 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300"
               >
                 <div className="flex items-center justify-center mb-4">
-                  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-r from-[#fab925] to-[#c40d40]">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#fe9a00]">
                     <item.icon className="h-6 w-6 text-white" />
                   </div>
                 </div>
@@ -111,7 +111,7 @@ export function Industries() {
           strategy, and technology to ensure real, measurable results.
           </p>
 
-          <button className="bg-gradient-to-r from-[#fab925] to-[#c40d40] text-white px-6 py-3 rounded-full shadow-md hover:scale-105 transition-all">
+          <button className="bg-[#fe9a00] px-6 py-3 rounded-full shadow-md hover:scale-105 transition-all">
             Let’s Talk →
           </button>
         </div>

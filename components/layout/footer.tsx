@@ -24,16 +24,16 @@ const quickLinks = [
 export function Footer() {
   return (
     <footer className="bg-[#0c4a6e] text-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-6xl mx-auto py-16 md:px-4 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
           {/* Company Info */}
           <div className="flex flex-col gap-6">
             <Image
-              src="/images/logo-black.png"
+              src="/images/logo-white.png"
               alt="Skymark Digital"
               width={160}
               height={53}
-              className="h-12 w-auto brightness-0 invert"
+              className="h-16 w-auto brightness-0 invert"
             />
             <p className="text-white/80 leading-relaxed">
               Empowering businesses with innovative IT solutions and digital marketing services. 

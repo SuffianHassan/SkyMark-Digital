@@ -35,7 +35,7 @@ const posts = [
 export function Blog() {
   return (
     <section id="blog" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-primary font-semibold uppercase tracking-wider text-sm">

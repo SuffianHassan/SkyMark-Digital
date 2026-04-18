@@ -54,21 +54,6 @@ export function WhyChooseUs() {
   return (
     <section className="relative py-30 bg-white overflow-hidden">
 
-      {/* <div className="absolute inset-0 pointer-events-none opacity-[0.3]"> */}
-        {/* Spiral Top Left */}
-          {/* <div className="absolute -top-40 -left-40 w-[500px] h-[500px] opacity-40 pointer-events-none">
-            <div className="spiral-grid" />
-          </div> */}
-
-          {/* Spiral Bottom Right */}
-          {/* <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] opacity-40 pointer-events-none">
-            <div className="spiral-grid rotate-180" />
-          </div>
-          
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#cbd5e1_1px,transparent_1px),linear-gradient(to_bottom,#cbd5e1_1px,transparent_1px)] bg-[size:40px_40px] animate-gridMove" />
-        <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-sky-200/20 blur-3xl -translate-x-1/2 -translate-y-1/2 rounded-full" />
-      </div> */}
-
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Spiral Top Left */}
         <div className="absolute -top-40 -left-40 w-[500px] h-[500px] z-0">
