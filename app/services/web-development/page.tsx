@@ -2,15 +2,9 @@ import { Metadata } from "next"
 import { TopBar } from "@/components/layout/top-bar"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { ServiceBanner } from "@/components/services/banners/automation-banner"
 import { ServiceSection } from "@/components/services/service-section"
 import { ServiceCTA } from "@/components/services/service-cta"
-import { 
-  Code, 
-  Globe, 
-  Smartphone, 
-  Wrench 
-} from "lucide-react"
+import { DevelopmentBanner } from "@/components/services/banners/development-banner"
 
 export const metadata: Metadata = {
   title: "Web Development Services | Skymark Digital",
@@ -19,7 +13,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    icon: Globe,
+    image: "/images/services/web-development.avif",
     title: "Website Design & Development",
     description: "Create stunning, high-performance websites that captivate visitors and convert them into customers. Our web development team builds responsive, SEO-friendly websites using the latest technologies.",
     features: [
@@ -32,7 +26,7 @@ const services = [
     ],
   },
   {
-    icon: Smartphone,
+    image: "/images/services/mobile-development.jfif",
     title: "Mobile App Development",
     description: "Bring your ideas to life with custom mobile applications for iOS and Android. We develop user-friendly apps that deliver exceptional experiences and drive engagement.",
     features: [
@@ -45,7 +39,20 @@ const services = [
     ],
   },
   {
-    icon: Wrench,
+    image: "/images/services/e-commerce.jpg", 
+    title: "E-Commerce Solutions",
+    description: "Launch and scale your online store with powerful, conversion-focused e-commerce solutions. We build secure, fast, and user-friendly platforms that maximize sales and customer experience.",
+    features: [
+      "Custom e-commerce website development",
+      "Shopify, WooCommerce & custom platforms",
+      "Secure payment gateway integration",
+      "Product & inventory management systems",
+      "Shopping cart and checkout optimization",
+      "Performance, SEO & conversion optimization",
+    ],
+  },
+  {
+    image: "/images/services/custom.png",
     title: "Custom Software Development",
     description: "Get tailored software solutions that address your unique business challenges. Our developers create scalable, secure applications that streamline your operations.",
     features: [
@@ -64,17 +71,11 @@ export default function WebDevelopmentPage() {
     <main className="min-h-screen bg-white">
       <TopBar />
       <Header />
-      
-      <ServiceBanner
-        title="Web Development"
-        description="Build powerful digital experiences with our expert web development services that combine creativity with cutting-edge technology."
-        icon={Code}
-        breadcrumb="Web Development"
-        gradient="gradient-web"
-      />
+
+      <DevelopmentBanner />
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 relative">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[#0ea5e9] font-semibold uppercase tracking-wider text-sm">
               Our Expertise
@@ -83,7 +84,7 @@ export default function WebDevelopmentPage() {
               Full-Stack Development Solutions
             </h2>
             <p className="text-muted-foreground text-lg">
-              From websites to mobile apps to custom software, we deliver comprehensive 
+              From websites to mobile apps to custom software, we deliver comprehensive
               development solutions that drive your business forward.
             </p>
           </div>
@@ -94,7 +95,7 @@ export default function WebDevelopmentPage() {
                 key={index}
                 title={service.title}
                 description={service.description}
-                icon={service.icon}
+                image={service.image}
                 features={service.features}
                 reversed={index % 2 !== 0}
               />

@@ -123,6 +123,10 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* html, body {
+  overflow-x: hidden;
+} */
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -718,4 +722,19 @@
 
 .wave-shadow {
   filter: drop-shadow(0 -12px 30px rgba(0, 0, 0, 0.12));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+
+@keyframes zoomSlow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }

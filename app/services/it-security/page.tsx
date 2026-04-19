@@ -2,15 +2,9 @@ import { Metadata } from "next"
 import { TopBar } from "@/components/layout/top-bar"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { ServiceBanner } from "@/components/services/banners/automation-banner"
 import { ServiceSection } from "@/components/services/service-section"
 import { ServiceCTA } from "@/components/services/service-cta"
-import { 
-  Shield, 
-  Lock, 
-  Server, 
-  Users 
-} from "lucide-react"
+import { ITSecurityBanner } from "@/components/services/banners/security-banner"
 
 export const metadata: Metadata = {
   title: "IT & Security Services | Skymark Digital",
@@ -19,7 +13,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    icon: Lock,
+    image: "/images/services/cyber.jpg",
     title: "Cyber Security Services",
     description: "Protect your business from cyber threats with our comprehensive security solutions. We implement robust security measures to safeguard your data, systems, and reputation.",
     features: [
@@ -32,7 +26,7 @@ const services = [
     ],
   },
   {
-    icon: Server,
+    image: "/images/services/network.jpg",
     title: "System & Network Management",
     description: "Keep your IT infrastructure running smoothly with our expert system and network management services. We ensure optimal performance, reliability, and security.",
     features: [
@@ -45,7 +39,7 @@ const services = [
     ],
   },
   {
-    icon: Users,
+    image: "/images/services/hrconsulting.jfif",
     title: "Technical & HR Consulting",
     description: "Get expert guidance on technology decisions and IT staffing. Our consultants help you make informed choices that align with your business objectives.",
     features: [
@@ -65,16 +59,10 @@ export default function ITSecurityPage() {
       <TopBar />
       <Header />
       
-      <ServiceBanner
-        title="IT & Security"
-        description="Secure, optimize, and manage your IT infrastructure with our comprehensive technology solutions and expert consulting services."
-        icon={Shield}
-        breadcrumb="IT & Security"
-        gradient="gradient-security"
-      />
+      <ITSecurityBanner />
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 relative">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[#0ea5e9] font-semibold uppercase tracking-wider text-sm">
               Our Services
@@ -94,7 +82,7 @@ export default function ITSecurityPage() {
                 key={index}
                 title={service.title}
                 description={service.description}
-                icon={service.icon}
+                image={service.image}
                 features={service.features}
                 reversed={index % 2 !== 0}
               />

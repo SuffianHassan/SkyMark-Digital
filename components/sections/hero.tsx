@@ -34,7 +34,7 @@ export function Hero() {
       <div className="absolute inset-0 pointer-events-none opacity-[0.12]">
         <div className="w-full h-full bg-[linear-gradient(to_right,#cbd5e1_1px,transparent_1px),linear-gradient(to_bottom,#cbd5e1_1px,transparent_1px)] bg-[size:32px_32px]" />
       </div>
-      
+
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {[...Array(10)].map((_, i) => (
           <div
@@ -100,13 +100,22 @@ export function Hero() {
           {/* RIGHT VISUAL SECTION */}
           <div className="relative flex items-center justify-center min-h-[260px] sm:min-h-[320px]">
 
-            {/* MAIN CARD (white box) */}
+            {/* MAIN CARD (white box)
             <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] bg-white rounded-2xl shadow-2xl flex items-center justify-center z-10 transition-transform duration-300 hover:scale-105">
               <img
-                src="/images/logo-black.png"
+                src="/images/hero-globe.png"
                 alt="Skymark Digital Logo"
-                className="w-25 sm:w-25 md:w-30 object-contain"
+                className="w-full h-full object-cover object-contain rounded-lg animate-[zoomSlow_12s_ease-in-out_infinite_alternate]"
               />
+            </div> */}
+            <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] bg-white rounded-2xl shadow-2xl flex items-center justify-center z-10 overflow-hidden transition-transform duration-300 hover:scale-105">
+
+              <img
+                src="/images/hero-globe.png"
+                alt="Skymark Digital Logo"
+                className="w-full h-full object-contain scale-110 animate-[zoomSlow_7s_ease-in-out_infinite_alternate]"
+              />
+
             </div>
 
             {/* Floating Card 1 */}

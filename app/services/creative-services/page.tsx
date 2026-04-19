@@ -2,17 +2,9 @@ import { Metadata } from "next"
 import { TopBar } from "@/components/layout/top-bar"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { ServiceBanner } from "@/components/services/banners/automation-banner"
 import { ServiceSection } from "@/components/services/service-section"
 import { ServiceCTA } from "@/components/services/service-cta"
-import { 
-  Palette, 
-  PenTool, 
-  Video, 
-  Layers, 
-  FileText,
-  Fingerprint
-} from "lucide-react"
+import { CreativeMarketingBanner } from "@/components/services/banners/creative-banner"
 
 export const metadata: Metadata = {
   title: "Creative Services | Skymark Digital",
@@ -21,7 +13,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    icon: PenTool,
+    image: "/images/services/graphic.jfif",
     title: "Graphic Designing",
     description: "Make a lasting impression with stunning visual designs. Our creative team crafts compelling graphics that communicate your message effectively and strengthen your brand identity.",
     features: [
@@ -34,7 +26,7 @@ const services = [
     ],
   },
   {
-    icon: Video,
+    image: "/images/services/video.jpg",
     title: "Professional Video Editing",
     description: "Transform raw footage into captivating stories. Our video editors create polished, professional videos that engage your audience and deliver your message with impact.",
     features: [
@@ -47,7 +39,7 @@ const services = [
     ],
   },
   {
-    icon: Layers,
+    image: "/images/services/ui-design.webp",
     title: "UI/UX Designing",
     description: "Create intuitive, user-centered digital experiences. Our UI/UX designers combine aesthetics with functionality to deliver interfaces that users love.",
     features: [
@@ -60,7 +52,7 @@ const services = [
     ],
   },
   {
-    icon: FileText,
+    image: "/images/services/content.webp",
     title: "Content Management",
     description: "Keep your content fresh, relevant, and engaging. Our content management services ensure your digital presence stays current and continues to attract your target audience.",
     features: [
@@ -73,7 +65,7 @@ const services = [
     ],
   },
   {
-    icon: Fingerprint,
+    image: "/images/services/brand.jpg",
     title: "Brand Identity & Branding",
     description: "Build a powerful brand that resonates with your audience. We create cohesive brand identities that differentiate you from competitors and build lasting connections.",
     features: [
@@ -93,16 +85,10 @@ export default function CreativeServicesPage() {
       <TopBar />
       <Header />
       
-      <ServiceBanner
-        title="Creative Services"
-        description="Elevate your brand with our comprehensive creative services that combine artistic excellence with strategic thinking."
-        icon={Palette}
-        breadcrumb="Creative Services"
-        gradient="gradient-creative"
-      />
+      <CreativeMarketingBanner />
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 relative">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-[#0ea5e9] font-semibold uppercase tracking-wider text-sm">
               Our Creative Solutions
@@ -122,7 +108,7 @@ export default function CreativeServicesPage() {
                 key={index}
                 title={service.title}
                 description={service.description}
-                icon={service.icon}
+                image={service.image}
                 features={service.features}
                 reversed={index % 2 !== 0}
               />

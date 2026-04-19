@@ -2,12 +2,8 @@ import { Metadata } from "next"
 import { TopBar } from "@/components/layout/top-bar"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-// import { ServiceBanner } from "@/components/services/banners/automation-banner"
 import { ServiceSection } from "@/components/services/service-section"
 import { ServiceCTA } from "@/components/services/service-cta"
-import { 
-  Megaphone, 
-} from "lucide-react"
 import { DigitalMarketingBanner } from "@/components/services/banners/digital-banner"
 
 export const metadata: Metadata = {
@@ -17,7 +13,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    image: "/images/services/banner.jpg",
+    image: "/images/services/seo.avif",
     title: "Search Engine Optimization (SEO)",
     description: "Dominate search results with our data-driven SEO strategies. We optimize your website to rank higher on Google and other search engines, driving organic traffic and increasing visibility.",
     features: [
@@ -30,7 +26,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/banner.jpg",
+    image: "/images/services/smm.png",
     title: "Social Media Marketing",
     description: "Build a powerful social media presence that engages your audience and drives results. Our social media experts create compelling content and strategies across all major platforms.",
     features: [
@@ -43,7 +39,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/banner.jpg",
+    image: "/images/services/meta.jpg",
     title: "Google & Meta Advertising",
     description: "Maximize your ROI with targeted advertising campaigns on Google and Meta platforms. Our certified experts create and optimize campaigns that deliver measurable results.",
     features: [
@@ -56,7 +52,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/banner.jpg",
+    image: "/images/services/lead.webp",
     title: "Lead Generation",
     description: "Generate high-quality leads that convert into customers. Our lead generation strategies combine multiple channels to create a consistent flow of potential clients.",
     features: [
@@ -69,7 +65,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/banner.jpg",
+    image: "/images/services/email.jfif",
     title: "Email Marketing",
     description: "Nurture leads and retain customers with strategic email marketing campaigns. We create personalized email sequences that drive engagement and conversions.",
     features: [
