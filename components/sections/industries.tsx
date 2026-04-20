@@ -45,7 +45,8 @@ export function Industries() {
   }, [paused])
 
   return (
-    <section className="relative py-20 md:py-28 lg:py-28 bg-gradient-to-r from-[#fab925]/30 to-[#c40d40]/25 overflow-hidden">
+    // <section className="relative py-20 md:py-28 lg:py-28 bg-gradient-to-r from-[#fab925]/30 to-[#c40d40]/25 overflow-hidden">
+      <section className="relative py-20 md:py-28 lg:py-28 bg-gradient-to-r from-sky-500 via-white to-sky-400 overflow-hidden">
 
       <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
 
@@ -55,7 +56,7 @@ export function Industries() {
       </h2>
       </div>
         {/* LEFT → SLIDER */}
-        <div
+        <div  
           className="relative h-[300px] sm:h-[360px] md:h-[560px] overflow-hidden"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}

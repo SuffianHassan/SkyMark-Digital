@@ -18,7 +18,7 @@ const partners = [
 
 export function Partners() {
   return (
-   <section className="py-20 bg-gradient-to-b from-sky-50 to-sky-300">
+   <section className="py-20 bg-gradient-to-b bg-gradient-to-b from-slate-400 to-sky-100">
       <div className="container mx-auto px-4">
 
         {/* Header */}

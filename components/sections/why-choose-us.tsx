@@ -103,7 +103,7 @@ export function WhyChooseUs() {
           </div>
 
           {/* Right Features Grid */}
-          <div className="grid sm:grid-cols-2 gap-6">
+          {/* <div className="grid sm:grid-cols-2 gap-6">
             {features.map((feature, index) => (
               <div
                 key={index}
@@ -117,6 +117,37 @@ export function WhyChooseUs() {
                   {feature.title}
                 </h3>
 
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div> */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="p-6 rounded-xl 
+                  bg-gradient-to-br from-[#e0f2fe] via-white to-[#bae6fd]
+                  backdrop-blur-sm
+                  border border-white/40
+                  hover:shadow-xl hover:-translate-y-1
+                  transition-all duration-300 group"
+                >
+                {/* ICON */}
+                <div className="inline-flex items-center justify-center w-12 h-12 
+                  bg-[#0ea5e9]/10 rounded-lg mb-4 
+                  group-hover:bg-[#0ea5e9]/20 transition-colors"
+                >
+                  <feature.icon className="h-6 w-6 text-[#0ea5e9]" />
+                </div>
+
+                {/* TITLE */}
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  {feature.title}
+                </h3>
+
+                {/* DESCRIPTION */}
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {feature.description}
                 </p>

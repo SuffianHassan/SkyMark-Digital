@@ -50,7 +50,7 @@ const services = [
     color: "bg-[#374151]",
     image: "/images/automation.png"
   },
-  
+
   {
     icon: Shield,
     title: "IT & Security",
@@ -60,7 +60,7 @@ const services = [
     color: "bg-[#1f2937]",
     image: "/images/security.jfif"
   },
-  
+
   {
     icon: Briefcase,
     title: "Business Services",
@@ -101,12 +101,17 @@ export function Services() {
   const { ref, isInView } = useInView(0.2)
 
   return (
+    // <section
+    //   id="services"
+    //   className="relative py-20 bg-sky-50 overflow-hidden"
+    // >
     <section
       id="services"
-      className="relative py-20 bg-sky-50 overflow-hidden"
+      // className="relative py-20 overflow-hidden bg-gradient-to-br from-sky-500 via-white to-sky-400"
+      className="relative py-20 overflow-hidden bg-gradient-to-br from-[#fff7e6] via-[#F6B224]/60 to-[#F6B224]/20"
     >
       {/* Glow background */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-sky-200/50 rounded-full blur-3xl pointer-events-none" />
+      {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-sky-200/50 rounded-full blur-3xl pointer-events-none" /> */}
 
       <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
 
