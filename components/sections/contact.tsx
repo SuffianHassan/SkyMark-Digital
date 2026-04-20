@@ -4,7 +4,7 @@ import { Phone, MapPin, Clock } from "lucide-react"
 
 export function Contact() {
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section id="contact" className="py-20 bg-white relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
 
         <div className="absolute w-2 h-2 bg-[#0ea5e9]/30 rounded-full top-[10%] left-[15%] float-fast" style={{ animationDelay: "2s" }} />
@@ -41,9 +41,9 @@ export function Contact() {
             <div className="w-16 h-[2px] bg-gray-400 mx-auto lg:mx-0 mb-6"></div>
 
             <div className="space-y-3 text-gray-700">
-              <p><span className="font-semibold">Phone:</span> 1 (232) 252 55 22</p>
-              <p><span className="font-semibold">Location:</span> 75 Street Sample, WI 63025</p>
-              <p><span className="font-semibold">Mail:</span> template@sample.com</p>
+              <p><span className="font-semibold">Phone:</span> +1 (416) 832-4050, +1 (437) 600-4988 </p>
+              <p><span className="font-semibold">Location:</span> TORONTO, ON, Canada</p>
+              <p><span className="font-semibold">Mail:</span> info@skymark-digital.com</p>
             </div>
           </div>
 
@@ -68,15 +68,15 @@ export function Contact() {
 
             <div className="relative bg-[#0ea5e9] text-white p-6 rounded-xl shadow-lg 
                     transition-all duration-300 
-                    hover:-translate-y-2 hover:shadow-2xl">
+                    hover:-translate-y-2 hover:shadow-2xl h-35">
 
               <div className="flex items-center gap-2 mb-3 font-semibold">
                 <Phone size={18} /> CALL US
               </div>
 
               <p className="text-sm text-white/90">
-                1 (234) 567-891,<br />
-                1 (234) 987-654
+              +1 (416) 832-4050,<br />
+              +1 (437) 600-4988
               </p>
             </div>
           </div>
@@ -87,14 +87,14 @@ export function Contact() {
 
             <div className="relative bg-[#0ea5e9] text-white p-6 rounded-xl shadow-lg 
                     transition-all duration-300 
-                    hover:-translate-y-2 hover:shadow-2xl">
+                    hover:-translate-y-2 hover:shadow-2xl h-35">
 
               <div className="flex items-center gap-2 mb-3 font-semibold">
                 <MapPin size={18} /> LOCATION
               </div>
 
               <p className="text-sm text-white/90">
-                121 Rock Street, 21 Avenue, New York, NY 92103-9000
+              TORONTO, ON, Canada
               </p>
             </div>
           </div>
@@ -105,15 +105,14 @@ export function Contact() {
 
             <div className="relative bg-[#0ea5e9] text-white p-6 rounded-xl shadow-lg 
                     transition-all duration-300 
-                    hover:-translate-y-2 hover:shadow-2xl">
+                    hover:-translate-y-2 hover:shadow-2xl h-35">
 
               <div className="flex items-center gap-2 mb-3 font-semibold">
                 <Clock size={18} /> HOURS
               </div>
 
               <p className="text-sm text-white/90">
-                Mon – Fri: 11 am – 8 pm<br />
-                Sat, Sun: 6 am – 8 pm
+                Mon – Fri: 9:00 am – 5:00 pm<br />
               </p>
             </div>
           </div>

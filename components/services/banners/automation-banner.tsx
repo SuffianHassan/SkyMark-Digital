@@ -26,7 +26,7 @@ export function AutomationBanner() {
         <img
           src="/images/banners/automation-banner1.png" // <-- put your image here
           alt="AI Automation"
-          className="w-full h-full object-cover object-center animate-[zoomSlow_12s_ease-in-out_infinite_alternate]"
+          className="w-full h-full object-cover object-center animate-[zoomSlow_20s_ease-in-out_infinite_alternate]"
         />
         {/* DARK GRADIENT OVERLAY */}
         <div className="absolute inset-0 bg-linear-to-r from-[#bb093e]/50 via-[#021c2b]/1 to-transparent" />

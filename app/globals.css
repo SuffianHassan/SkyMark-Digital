@@ -725,16 +725,63 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 
 @keyframes zoomSlow {
   0% {
+    transform: scale(2);
+  }
+
+  100% {
     transform: scale(1);
   }
+}
+
+@keyframes zoomDev {
+  0% {
+    transform: scale(1);
+  }
+
   100% {
     transform: scale(1.1);
   }
+}
+
+.blog-content h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.blog-content h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.blog-content p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.blog-content ul {
+  margin-bottom: 16px;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.blog-content li {
+  margin-bottom: 6px;
 }

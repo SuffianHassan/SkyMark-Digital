@@ -90,7 +90,7 @@ export function CreativeMarketingBanner() {
             <img
               src="/images/banners/creative.webp"
               alt="Marketing"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover animate-[zoomSlow_25s_ease-in-out_infinite_alternate]"
             />
           </div>
 

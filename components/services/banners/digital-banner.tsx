@@ -134,7 +134,7 @@ export function DigitalMarketingBanner() {
             <img
               src="/images/banners/marketing-person.jpg"
               alt="Marketing"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover animate-[zoomSlow_18s_ease-in-out_infinite_alternate]"
             />
           </div>
 

@@ -9,7 +9,7 @@ export function TopBar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-20 xl:px-30 flex items-center justify-between">
         <div className="flex items-center gap-2 text-sm">
           <Phone className="h-4 w-4 text-amber-400" />
-          <span>+1 (555) 123-4567</span>
+          <span>+1 (416) 832-4050</span>
         </div>
         <div className="flex items-center gap-4">
           <Link href="https://www.facebook.com/skymarkdigitalinc" target="_blank" className="hover:text-amber-400 transition-colors" aria-label="Facebook">

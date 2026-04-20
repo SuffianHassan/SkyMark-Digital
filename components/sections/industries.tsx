@@ -113,7 +113,7 @@ export function Industries() {
           </p>
           <Link href="/#contact">
           <button className="bg-[#fe9a00] px-6 py-3 rounded-full shadow-md hover:scale-105 transition-all">
-            Let’s Talk →
+          Let’s Talk →
           </button>
           </Link>
         </div>

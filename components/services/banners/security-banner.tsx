@@ -12,7 +12,7 @@ export function ITSecurityBanner() {
         <img
           src="/images/banners/security.png" 
           alt="IT Security"
-          className="w-full h-full object-cover animate-[zoomSlow_12s_ease-in-out_infinite_alternate]" 
+          className="w-full h-full object-cover animate-[zoomSlow_25s_ease-in-out_infinite_alternate]" 
         />
       </div>
 

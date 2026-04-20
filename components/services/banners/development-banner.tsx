@@ -84,7 +84,7 @@ export function DevelopmentBanner() {
           <img
             src="/images/banners/web.png" // <-- your dev image
             alt="Development"
-            className="w-[300px] sm:w-[400px] md:w-[500px] lg:w-[650px] object-contain drop-shadow-2xl"
+            className="w-[300px] sm:w-[400px] md:w-[500px] lg:w-[650px] object-contain drop-shadow-2xl animate-[zoomDev_3s_ease-in-out_infinite_alternate]"
           />
         </div>
 

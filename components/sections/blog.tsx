@@ -13,6 +13,7 @@ const posts = [
     author: "Michael Chen",
     date: "March 15, 2026",
     category: "AI & Technology",
+    slug: "future-of-ai-in-marketing"
   },
   {
     title: "10 SEO Strategies for 2026",
@@ -21,6 +22,7 @@ const posts = [
     author: "Sarah Johnson",
     date: "March 12, 2026",
     category: "Digital Marketing",
+    slug: "seo-strategies-2026",
   },
   {
     title: "Building Secure Web Applications",
@@ -29,6 +31,7 @@ const posts = [
     author: "David Williams",
     date: "March 10, 2026",
     category: "Web Development",
+    slug: "building-secure-web-applications"
   },
 ]
 
@@ -85,7 +88,7 @@ export function Blog() {
                   {post.excerpt}
                 </p>
                 <Link
-                  href="#"
+                  href={`/blog/${post.slug}`}
                   className="inline-flex items-center text-primary font-medium hover:gap-2 transition-all"
                 >
                   Read More
