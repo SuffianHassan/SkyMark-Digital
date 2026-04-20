@@ -106,7 +106,7 @@ export function Services() {
       className="relative py-20 bg-sky-50 overflow-hidden"
     >
       {/* Glow background */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-sky-200/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-sky-200/50 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
 
@@ -155,7 +155,7 @@ export function Services() {
                   className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-20 transition-all duration-500"
                   style={{ backgroundImage: `url(${service.image})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/20 group-hover:via-white/40 group-hover:to-white/30 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/20 group-hover:via-white/10 group-hover:to-white/10 transition-all duration-500" />
                 {/* Shine effect */}
                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700" />
 

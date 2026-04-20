@@ -15,7 +15,7 @@ export function ServiceCTA({
 }: ServiceCTAProps) {
   return (
     <section className=" bg-white">
-      <div className="container mx-auto">
+      <div className="w-full">
         <div className="gradient-hero p-10 md:p-16 text-center relative overflow-hidden">
           {/* Mesh overlay */}
           <div className="absolute inset-0 mesh-overlay rounded-3xl" />
