@@ -28,7 +28,8 @@ export function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[100vh] flex items-start pt-24 lg:pt-28 overflow-hidden gradient-hero"
+      // className="relative min-h-[100vh] flex items-start pt-24 lg:pt-28 overflow-hidden gradient-hero"
+      className="relative min-h-[80vh] lg:min-h-[60vh] flex items-start pt-20 lg:pt-24 overflow-hidden gradient-hero"
       style={{ "--mouse-x": "50%", "--mouse-y": "50%" } as React.CSSProperties}
     >
       <div className="absolute inset-0 pointer-events-none opacity-[0.12]">
@@ -51,7 +52,7 @@ export function Hero() {
       </div>
 
       {/* <div className="max-w-7xl mx-auto px-6 lg:px-2 relative z-10"> */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-2 relative z-10 pb-28 sm:pb-36">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-2 relative z-10 pb-28 sm:pb-36">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* LEFT CONTENT */}
@@ -100,36 +101,42 @@ export function Hero() {
           {/* RIGHT VISUAL SECTION */}
           <div className="relative flex items-center justify-center min-h-[260px] sm:min-h-[320px]">
             <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] bg-white rounded-2xl shadow-2xl flex items-center justify-center z-10 overflow-hidden transition-transform duration-300 hover:scale-105">
-
               <img
                 src="/images/hero-globe.png"
                 alt="Skymark Digital Logo"
                 className="w-full h-full object-contain scale-110 animate-[zoomSlow_18s_ease-in-out_infinite_alternate]"
               />
-
             </div>
 
-            {/* Floating Card 1 */}
-            <div className="absolute -top-4 left-12 animate-float-slow">
-              <div className="bg-white/90 backdrop-blur-md px-5 py-3 rounded-xl shadow-lg">
-                <p className="text-xs text-gray-500">Projects Done</p>
-                <p className="text-lg font-bold text-blue-600">250+</p>
+            {/* Floating Card - Top Left*/}
+            <div className="absolute -top-5 right-20 -translate-x-1/2 animate-float-slow">
+              <div className="bg-white/90 backdrop-blur-md px-5 py-3 rounded-xl shadow-lg text-center">
+                <p className="text-xs text-gray-500">Projects</p>
+                <p className="text-sm font-bold text-blue-600">250+</p>
               </div>
             </div>
 
-            {/* Floating Card 2 */}
-            <div className="absolute top-40 -right-2 animate-float-slow delay-500">
-              <div className="bg-white/90 backdrop-blur-md px-5 py-3 rounded-xl shadow-lg">
+             {/* Floating Card - Middle Right */}
+            <div className="absolute left-20 top-1/3 -translate-y-1/2 animate-float-slow delay-500">
+              <div className="bg-white/90 backdrop-blur-md px-3 py-3 rounded-xl shadow-lg text-center">
+                <p className="text-xs text-gray-500">Experience</p>
+                <p className="text-sm font-bold text-red-500">5+ Years</p>
+              </div>
+            </div>
+
+            {/* Floating Card - Middle Right */}
+            <div className="absolute right-20 top-2/3 -translate-y-1/2 animate-float-slow delay-400">
+              <div className="bg-white/90 backdrop-blur-md px-3 py-3 rounded-xl shadow-lg text-center">
                 <p className="text-xs text-gray-500">Satisfaction</p>
-                <p className="text-lg font-bold text-red-500">98%</p>
+                <p className="text-sm font-bold text-green-600">98%</p>
               </div>
             </div>
 
-            {/* Floating Card 3 */}
-            <div className="absolute right-12 top-56 animate-float-slow delay-500">
-              <div className="bg-white/90 backdrop-blur-md px-5 py-3 rounded-xl shadow-lg">
-                <p className="text-xs text-gray-500">Happy Clients</p>
-                <p className="text-lg font-bold text-orange-500">120+</p>
+            {/* Floating Card - Bottom Left */}
+            <div className="absolute top-6/7 left-30 -translate-x-1/2 animate-float-slow delay-300">
+              <div className="bg-white/90 backdrop-blur-md px-3 py-3 rounded-xl shadow-lg text-center">
+                <p className="text-xs text-gray-500">Countries</p>
+                <p className="text-sm font-bold text-orange-500">8+</p>
               </div>
             </div>
           </div>
@@ -150,9 +157,8 @@ export function Hero() {
       `}</style>
 
       <div className="absolute bottom-0 left-0 w-full h-56 pointer-events-none z-0 flex justify-center">
-        <div className="w-full max-w-5xl text-center mt-20 pt-12 border-t border-white/10">
-
-          <p className="text-md text-white/60 mb-6">
+        <div className="w-full max-w-5xl text-center mt-25 pt-8 border-t border-white/10">
+          <p className="text-md text-white/60 mb-4">
             Trusted by leading companies worldwide
           </p>
 
@@ -163,7 +169,6 @@ export function Hero() {
               </span>
             ))}
           </div>
-
         </div>
       </div>
 
