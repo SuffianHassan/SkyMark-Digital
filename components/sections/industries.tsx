@@ -8,17 +8,30 @@ import {
   Car,
   ShoppingCart,
   GraduationCap,
+  CarIcon,
+  Building,
+  HeartPlus,
+  School,
 } from "lucide-react"
 import Link from "next/link"
+import { Inter_Tight } from "next/font/google"
 
 const industries = [
-  { icon: Building2, title: "Real Estate", desc: "Property & lead systems" },
-  { icon: UtensilsCrossed, title: "Restaurants", desc: "Ordering & marketing" },
-  { icon: Heart, title: "Dental Clinics", desc: "Patient systems" },
-  { icon: GraduationCap, title: "Driving Schools", desc: "Scheduling & SEO" },
-  { icon: Car, title: "Automotive", desc: "Dealer platforms" },
-  { icon: ShoppingCart, title: "E-Commerce", desc: "Online stores" },
+  { icon: Building2, title: "Real Estate", desc: "Property & Lead Systems" },
+  { icon: Building, title: "Beauty Salon", desc: "Customers Scheduling" },
+  { icon: UtensilsCrossed, title: "Restaurants", desc: "Ordering & Marketing" },
+  { icon: Heart, title: "Dental Clinics", desc: "Patient Systems" },
+  { icon: CarIcon, title: "Driving Schools", desc: "Scheduling & SEO" },
+  { icon: Car, title: "Automotive", desc: "Dealer Platforms" },
+  { icon: HeartPlus, title: "Doctors Clinics", desc: "Patient Systems" },
+  { icon: School, title: "Schools", desc: "Attendance & Scheduling" },
+  { icon: ShoppingCart, title: "E-Commerce", desc: "Online Stores" },
 ]
+
+const interTight = Inter_Tight({
+  subsets: ['latin'],
+  weight: ['700', '800', '900'],
+})
 
 export function Industries() {
   const sliderRef = useRef<HTMLDivElement>(null)
@@ -45,19 +58,18 @@ export function Industries() {
   }, [paused])
 
   return (
-    // <section className="relative py-20 md:py-28 lg:py-28 bg-gradient-to-r from-[#fab925]/30 to-[#c40d40]/25 overflow-hidden">
-      <section className="relative py-20 md:py-28 lg:py-28 bg-gradient-to-r from-sky-500 via-white to-sky-400 overflow-hidden">
+    <section className="relative py-20 md:py-28 lg:py-28 bg-gradient-to-r from-sky-500 via-white to-sky-400 overflow-hidden">
 
       <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
 
-      <div className="lg:hidden text-center mb-10">
-      <h2 className="text-3xl font-bold tracking-[0.3em] text-transparent bg-gradient-to-r from-[#fab925] to-[#c40d40] bg-clip-text">
-        SKYMARK DIGITAL
-      </h2>
-      </div>
+        <div className="order-1 lg:hidden text-center mb-10">
+          <h2 className="text-3xl font-bold tracking-[0.3em] text-transparent bg-gradient-to-r from-[#fab925] to-[#c40d40] bg-clip-text">
+            SKYMARK DIGITAL
+          </h2>
+        </div>
         {/* LEFT → SLIDER */}
-        <div  
-          className="relative h-[300px] sm:h-[360px] md:h-[560px] overflow-hidden"
+        <div
+          className="order-2 lg:order-1 relative h-[300px] sm:h-[360px] md:h-[560px] overflow-hidden"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
@@ -89,7 +101,7 @@ export function Industries() {
           </div>
         </div>
 
-        <div className="hidden lg:flex items-center justify-center">
+        <div className="hidden lg:order-2 lg:flex items-center justify-center">
           <div className="text-center rotate-90 whitespace-nowrap leading-[1.2]">
             <span className="block text-8xl font-bold text-transparent stroke-text tracking-[0.2em]">
               Skymark
@@ -101,21 +113,21 @@ export function Industries() {
         </div>
 
         {/* RIGHT → CONTENT */}
-        <div>
+        <div className="order-1 lg:order-2">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Industries We Serve
           </h2>
 
           <p className="text-gray-600 mb-6 leading-relaxed">
-          We have worked across multiple industries, delivering tailored digital 
-          solutions that help businesses streamline operations, enhance customer 
-          experiences, and achieve sustainable growth. Our approach combines innovation, 
-          strategy, and technology to ensure real, measurable results.
+            We have worked across multiple industries, delivering tailored digital
+            solutions that help businesses streamline operations, enhance customer
+            experiences, and achieve sustainable growth. Our approach combines innovation,
+            strategy, and technology to ensure real, measurable results.
           </p>
           <Link href="/#contact">
-          <button className="bg-[#fe9a00] px-6 py-3 rounded-full shadow-md hover:scale-105 transition-all">
-          Let’s Talk →
-          </button>
+            <button className="bg-[#fe9a00] px-6 py-3 rounded-full shadow-md hover:scale-105 transition-all">
+              Let’s Talk →
+            </button>
           </Link>
         </div>
 

@@ -109,7 +109,7 @@ export function Hero() {
             </div>
 
             {/* Floating Card - Top Left*/}
-            <div className="absolute -top-5 right-20 -translate-x-1/2 animate-float-slow">
+            <div className="absolute -top-6 right-45 -translate-x-1/2 animate-float-slow">
               <div className="bg-white/90 backdrop-blur-md px-5 py-3 rounded-xl shadow-lg text-center">
                 <p className="text-xs text-gray-500">Projects</p>
                 <p className="text-sm font-bold text-blue-600">250+</p>
@@ -117,15 +117,15 @@ export function Hero() {
             </div>
 
              {/* Floating Card - Middle Right */}
-            <div className="absolute left-20 top-1/3 -translate-y-1/2 animate-float-slow delay-500">
+            <div className="absolute left-1/2 -translate-x-[140px] sm:-translate-x-[180px] md:-translate-x-[220px] top-[65%] -translate-y-1/2 animate-float-slow delay-500">
               <div className="bg-white/90 backdrop-blur-md px-3 py-3 rounded-xl shadow-lg text-center">
                 <p className="text-xs text-gray-500">Experience</p>
                 <p className="text-sm font-bold text-red-500">5+ Years</p>
               </div>
             </div>
 
-            {/* Floating Card - Middle Right */}
-            <div className="absolute right-20 top-2/3 -translate-y-1/2 animate-float-slow delay-400">
+            {/* Floating Card - Middle Left */}
+            <div className="absolute left-1/3 translate-x-[140px] sm:translate-x-[180px] md:translate-x-[240px] -translate-y-2/3 animate-float-slow delay-400">
               <div className="bg-white/90 backdrop-blur-md px-3 py-3 rounded-xl shadow-lg text-center">
                 <p className="text-xs text-gray-500">Satisfaction</p>
                 <p className="text-sm font-bold text-green-600">98%</p>
@@ -133,8 +133,8 @@ export function Hero() {
             </div>
 
             {/* Floating Card - Bottom Left */}
-            <div className="absolute top-6/7 left-30 -translate-x-1/2 animate-float-slow delay-300">
-              <div className="bg-white/90 backdrop-blur-md px-3 py-3 rounded-xl shadow-lg text-center">
+            <div className="absolute top-[92%] left-70 -translate-x-1/2 animate-float-slow delay-300">
+              <div className="bg-white/90 backdrop-blur-md px-4 py-3 rounded-xl shadow-lg text-center">
                 <p className="text-xs text-gray-500">Countries</p>
                 <p className="text-sm font-bold text-orange-500">8+</p>
               </div>

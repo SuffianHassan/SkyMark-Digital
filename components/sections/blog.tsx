@@ -41,7 +41,7 @@ export function Blog() {
       <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+          <span className="text-primary font-semibold uppercase tracking-wider text-md">
             Our Blog
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6 text-balance">

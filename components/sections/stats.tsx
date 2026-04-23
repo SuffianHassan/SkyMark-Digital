@@ -6,7 +6,7 @@ import { Users, Award, Briefcase, Globe, TrendingUp } from "lucide-react"
 const stats = [
   {
     icon: Users,
-    value: 500,
+    value: 236,
     suffix: "+",
     label: "Happy Clients",
     description: "Worldwide",
@@ -16,7 +16,7 @@ const stats = [
   },
   {
     icon: Award,
-    value: 15,
+    value: 5,
     suffix: "+",
     label: "Years Experience",
     description: "In Industry",
@@ -26,7 +26,7 @@ const stats = [
   },
   {
     icon: Briefcase,
-    value: 1200,
+    value: 250,
     suffix: "+",
     label: "Projects Completed",
     description: "Successfully",
@@ -36,7 +36,7 @@ const stats = [
   },
   {
     icon: Globe,
-    value: 30,
+    value: 8,
     suffix: "+",
     label: "Countries Served",
     description: "Globally",
@@ -102,13 +102,8 @@ function AnimatedCounter({ value, suffix, color, size = "text-4xl md:text-5xl" }
 
 export function Stats() {
   return (
-    // <section className="py-20 bg-white relative overflow-hidden">
     <section className="pt-28 pb-36 md:pt-36 bg-white relative overflow-hidden">
-      {/* Background decorations */}
-      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
-      </div> */}
+
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
         {/* Center Glow */}
@@ -125,8 +120,8 @@ export function Stats() {
       <div className="max-w-6xl mx-auto px-6 md:px-10 relative">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-flex items-center gap-2 text-[#0ea5e9] font-semibold uppercase tracking-wider text-sm mb-4">
-            <TrendingUp className="h-4 w-4" />
+          <span className="inline-flex items-center gap-2 text-[#0ea5e9] font-semibold uppercase text-md tracking-wider mb-4">
+            <TrendingUp className="w-6 h-6"/>
             Our Impact
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">

@@ -4,16 +4,15 @@ import Image from "next/image"
 
 const partners = [
   { logo: "/images/logos/arif.png" },
-  { logo: "/images/logos/century.png" },
-  { logo: "/images/logos/city.png" },
+  { logo: "/images/logos/gdc.png" },
   { logo: "/images/logos/emad.png" },
+  { logo: "/images/logos/road.png" },
   { logo: "/images/logos/hamza.jpeg" },
-  { logo: "/images/logos/remax.png" },
-  { logo: "/images/logos/royal.png" },
   { logo: "/images/logos/salman.png" },
+  { logo: "/images/logos/sf.png" },
   { logo: "/images/logos/st.png" },
-  { logo: "/images/logos/trademax.png" },
   { logo: "/images/logos/unknown.png" },
+  { logo: "/images/logos/gwg.png" },
 ]
 
 export function Partners() {
@@ -23,7 +22,7 @@ export function Partners() {
 
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+          <span className="text-primary font-semibold uppercase tracking-wider text-md">
             Our Clients
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mt-4">

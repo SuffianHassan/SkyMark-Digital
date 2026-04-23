@@ -7,9 +7,9 @@ import {
   Bot,
   Code,
   Shield,
-  Palette,
-  Briefcase,
-  ArrowRight
+  ArrowRight,
+  BriefcaseIcon,
+  PaletteIcon
 } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -20,7 +20,7 @@ const services = [
     description:
       "Strategic SEO, social media marketing, Google & Meta advertising, lead generation, and email marketing to boost your online presence.",
     href: "/services/digital-marketing",
-    color: "bg-[#1d4ed8]",
+    color: "bg-gradient-to-br from-blue-500 via-sky-700 to-cyan-400",
     image: "/images/marketing.jpg"
   },
   {
@@ -29,16 +29,16 @@ const services = [
     description:
       "Custom website design, mobile app development, and software solutions tailored to your unique business requirements.",
     href: "/services/web-development",
-    color: "bg-[#f59e0b]",
+    color: "bg-gradient-to-br from-amber-400 via-orange-600 to-yellow-500",
     image: "/images/web.png"
   },
   {
-    icon: Palette,
+    icon: PaletteIcon,
     title: "Creative Services",
     description:
       "Professional graphic design, video editing, UI/UX design, content management, and brand identity development.",
     href: "/services/creative-services",
-    color: "bg-[#e11d48]",
+    color: "bg-gradient-to-br from-red-500 via-rose-800 to-red-500",
     image: "/images/creative.png"
   },
   {
@@ -47,27 +47,25 @@ const services = [
     description:
       "AI automation solutions, smart operations management, and comprehensive ERP solutions to streamline your business processes.",
     href: "/services/automation-ai",
-    color: "bg-[#374151]",
+    color: "bg-gradient-to-br from-slate-600 via-gray-800 to-zinc-800",
     image: "/images/automation.png"
   },
-
   {
     icon: Shield,
     title: "IT & Security",
     description:
       "Robust cyber security services, system & network management, and technical consulting to protect your digital assets.",
     href: "/services/it-security",
-    color: "bg-[#1f2937]",
+    color: "bg-gradient-to-br from-blue-700 via-blue-500 to-black",
     image: "/images/security.jfif"
   },
-
   {
-    icon: Briefcase,
+    icon: BriefcaseIcon,
     title: "Business Services",
     description:
       "Amazon store setup, accounting & bookkeeping, and HR consulting to support your business operations.",
     href: "/services/business-services",
-    color: "bg-[#047857]",
+    color: "bg-gradient-to-br from-emerald-500 via-green-800 to-teal-500",
     image: "/images/business.jfif"
   },
 ]
@@ -101,23 +99,15 @@ export function Services() {
   const { ref, isInView } = useInView(0.2)
 
   return (
-    // <section
-    //   id="services"
-    //   className="relative py-20 bg-sky-50 overflow-hidden"
-    // >
     <section
       id="services"
-      // className="relative py-20 overflow-hidden bg-gradient-to-br from-sky-500 via-white to-sky-400"
       className="relative py-20 overflow-hidden bg-gradient-to-br from-[#fff7e6] via-[#F6B224]/60 to-[#F6B224]/20"
     >
-      {/* Glow background */}
-      {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-sky-200/50 rounded-full blur-3xl pointer-events-none" /> */}
-
       <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-[#0ea5e9] font-semibold uppercase tracking-wider text-sm">
+          <span className="text-[#0ea5e9] font-semibold uppercase tracking-wider text-md">
             What We Offer
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
@@ -166,15 +156,22 @@ export function Services() {
 
                 <CardContent className="p-5 md:p-6 relative z-10">
 
-                  {/* Icon */}
-                  <div className={`
-                    inline-flex items-center justify-center w-12 h-12
-                    ${service.color}
-                    rounded-lg mb-4
-                    group-hover:scale-110 group-hover:rotate-3
-                    transition-all duration-300
-                  `}>
-                    <service.icon className="h-6 w-6 text-white" />
+                    <div className={`
+                      relative inline-flex items-center justify-center w-14 h-14
+                      rounded-xl mb-5
+                      ${service.color}
+                      shadow-md
+                      group-hover:shadow-lg group-hover:shadow-sky-500/20
+                      transition-all duration-300
+                    `}>
+                  {/* Glow layer */}
+                   <div className={`
+                      absolute inset-0 rounded-xl opacity-0 group-hover:opacity-20
+                      ${service.color} blur-xl transition-all duration-500
+                    `}></div>
+
+                    {/* Icon */}
+                    <service.icon className="h-6 w-6 text-white relative z-10 group-hover:scale-110 transition-transform" />
                   </div>
 
                   {/* Title */}

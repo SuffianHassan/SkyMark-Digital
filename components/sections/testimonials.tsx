@@ -7,33 +7,33 @@ import { Button } from "@/components/ui/button"
 
 const testimonials = [
   {
-    name: "Jennifer Martinez",
-    role: "CEO, TechStart Inc.",
+    name: "Wasi Uddin",
+    role: "Real Estate Agent",
     image: "/images/testimonials/jennifer.jpg",
-    content: "Skymark Digital transformed our online presence completely. Their SEO and digital marketing strategies helped us increase our organic traffic by 300% in just 6 months. Highly recommended!",
+    content: "I’m Wasiuddin and I’ve been in real estate in Canada for over 14 years . I’ve been working with Skymark Digital for the past 2 years and I’m very happy with their services . They’re professional, responsive, and really understand digital marketing for real estate . I’ve seen great improvement in my online presence. Highly recommend to anyone who wants to take his or her business to the next level",
     rating: 5,
   },
   {
-    name: "Robert Thompson",
-    role: "Founder, GreenLeaf Restaurants",
+    name: "Team Malik",
+    role: "Real Estate Agent",
     image: "/images/testimonials/robert.jpg",
-    content: "The web development team at Skymark created an amazing online ordering system for our restaurant chain. Customer orders have increased by 150% since launch. Outstanding work!",
+    content: "I am Malik Ashfaque, Realtor with Re/Max from the last 23 years! I will Highly Recommend Skymark Digital to anyone who want to Boost their Business to the Next Level. They are Team of Dedicated Professionals and always provide Excellent Services",
     rating: 5,
   },
   {
-    name: "Amanda Lee",
-    role: "Marketing Director, Urban Realty",
+    name: "Rafay Shahdin Real Estate ",
+    role: "Real Agent",
     image: "/images/testimonials/amanda.jpg",
-    content: "Their AI automation solutions have streamlined our lead generation process incredibly. We&apos;ve reduced manual work by 70% while doubling our qualified leads. A game-changer for our business!",
-    rating: 5,
+    content: "I had an excellent experience with this marketing company. They always donate best for clients.",
+    rating: 4,
   },
-  {
-    name: "David Park",
-    role: "CTO, SecureNet Solutions",
-    image: "/images/testimonials/david.jpg",
-    content: "The cybersecurity audit and implementation by Skymark Digital gave us peace of mind. Their team is professional, knowledgeable, and truly understands enterprise security needs.",
-    rating: 5,
-  },
+  // {
+  //   name: "David Park",
+  //   role: "CTO, SecureNet Solutions",
+  //   image: "/images/testimonials/david.jpg",
+  //   content: "The cybersecurity audit and implementation by Skymark Digital gave us peace of mind. Their team is professional, knowledgeable, and truly understands enterprise security needs.",
+  //   rating: 5,
+  // },
 ]
 
 export function Testimonials() {
@@ -71,7 +71,7 @@ export function Testimonials() {
       <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+          <span className="text-primary font-semibold uppercase tracking-wider text-md">
             Testimonials
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-3 text-balance">

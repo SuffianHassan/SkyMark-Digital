@@ -34,7 +34,8 @@ export function Header() {
 
   return (
     <header className="bg-white sticky top-0 z-50 shadow-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-20 xl:px-10">
+      {/* <div className="container mx-auto px-4 sm:px-6 lg:px-20 xl:px-10"> */}
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-20">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
@@ -53,7 +54,15 @@ export function Header() {
             {navLinks.map((link) =>
               link.hasDropdown ? (
                 <DropdownMenu key={link.name}>
-                  <DropdownMenuTrigger className="flex items-center gap-1 text-foreground hover:text-[#0ea5e9] font-medium transition-colors">
+                  <DropdownMenuTrigger 
+                    className="relative flex items-center gap-1 font-medium 
+                    hover:text-[#0ea5e9] transition-colors
+                    after:content-[''] after:absolute after:left-1/2 after:-bottom-1 
+                    after:h-[3px] after:w-0 after:bg-[#0ea5e9] 
+                    after:transition-all after:duration-300 after:ease-out
+                    after:-translate-x-1/2 
+                    hover:after:w-full hover:scale-105"
+                  >
                     {link.name}
                     <ChevronDown className="h-4 w-4" />
                   </DropdownMenuTrigger>
@@ -71,7 +80,13 @@ export function Header() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-foreground hover:text-[#0ea5e9] font-medium transition-colors"
+                  className="relative text-foreground font-medium transition-colors 
+                  hover:text-[#0ea5e9] 
+                  after:content-[''] after:absolute after:left-1/2 after:-bottom-1 
+                  after:h-[3px] after:w-0 after:bg-[#0ea5e9] 
+                  after:transition-all after:duration-300 after:ease-out
+                  after:-translate-x-1/2 
+                  hover:after:w-full hover:scale-105"
                 >
                   {link.name}
                 </Link>

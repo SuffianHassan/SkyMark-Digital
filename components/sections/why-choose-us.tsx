@@ -78,7 +78,7 @@ export function WhyChooseUs() {
 
           {/* Left Content */}
           <div>
-            <span className="text-[#0ea5e9] font-semibold uppercase tracking-wider text-sm">
+            <span className="text-[#0ea5e9] font-semibold uppercase tracking-wider text-md">
               Why Choose Us
             </span>
 
@@ -102,27 +102,6 @@ export function WhyChooseUs() {
             </ul>
           </div>
 
-          {/* Right Features Grid */}
-          {/* <div className="grid sm:grid-cols-2 gap-6">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="p-6 rounded-xl bg-gray-50 hover:bg-gray-100 transition-all group hover:-translate-y-1 hover:shadow-md"
-              >
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-sky-500/10 rounded-lg mb-4 group-hover:bg-sky-500/20 transition-colors">
-                  <feature.icon className="h-6 w-6 text-[#0ea5e9]" />
-                </div>
-
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  {feature.title}
-                </h3>
-
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div> */}
           <div className="grid sm:grid-cols-2 gap-6">
             {features.map((feature, index) => (
               <div
