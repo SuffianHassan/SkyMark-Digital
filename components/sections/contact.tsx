@@ -8,7 +8,7 @@ export function Contact() {
       <div className="absolute inset-0 pointer-events-none">
 
         <div className="absolute w-2 h-2 bg-[#0ea5e9]/30 rounded-full top-[10%] left-[15%] float-fast" style={{ animationDelay: "2s" }} />
-        <div className="absolute w-2 h-2 bg-[#0ea5e9]/20 rounded-full top-[25%] left-[70%] float-fast" style={{ animationDelay: "2s" }}  />
+        <div className="absolute w-2 h-2 bg-[#0ea5e9]/20 rounded-full top-[25%] left-[70%] float-fast" style={{ animationDelay: "2s" }} />
         <div className="absolute w-2 h-2 bg-[#0ea5e9]/25 rounded-full top-[60%] left-[20%] float-fast" style={{ animationDelay: "2s" }} />
         <div className="absolute w-2 h-2 bg-[#0ea5e9]/20 rounded-full top-[75%] left-[80%] float-fast" style={{ animationDelay: "2s" }} />
         <div className="absolute w-2 h-2 bg-[#0ea5e9]/30 rounded-full top-[40%] left-[50%] float-fast" style={{ animationDelay: "2s" }} />
@@ -20,7 +20,7 @@ export function Contact() {
         <div className="absolute w-32 h-32 bg-[#0ea5e9]/10 rounded-full blur-2xl bottom-[-60px] right-[-60px] float-slow" style={{ animationDelay: "2s" }} />
 
       </div>
-      
+
 
 
       <div className="container mx-auto px-4">
@@ -41,9 +41,9 @@ export function Contact() {
             <div className="w-16 h-[2px] bg-gray-400 mx-auto lg:mx-0 mb-6"></div>
 
             <div className="space-y-3 text-gray-700">
-              <p><span className="font-semibold">Phone:</span> +1 (416) 832-4050, +1 (437) 600-4988 </p>
-              <p><span className="font-semibold">Location:</span> TORONTO, ON, Canada</p>
-              <p><span className="font-semibold">Mail:</span> info@skymark-digital.com</p>
+              <p><span className="font-semibold">Phone:</span> +1 (416) 832-4050 </p>
+              <p><span className="font-semibold">Location:</span> Toronto, Ontario, Canada</p>
+              <p><span className="font-semibold">Email:</span> info@skymark-digital.com</p>
             </div>
           </div>
 
@@ -75,8 +75,7 @@ export function Contact() {
               </div>
 
               <p className="text-sm text-white/90">
-              +1 (416) 832-4050,<br />
-              +1 (437) 600-4988
+                +1 (416) 832-4050<br />
               </p>
             </div>
           </div>
@@ -94,7 +93,7 @@ export function Contact() {
               </div>
 
               <p className="text-sm text-white/90">
-              TORONTO, ON, Canada
+                TORONTO, ON, Canada
               </p>
             </div>
           </div>

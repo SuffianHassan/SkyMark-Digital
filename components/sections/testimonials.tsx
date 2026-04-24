@@ -9,31 +9,24 @@ const testimonials = [
   {
     name: "Wasi Uddin",
     role: "Real Estate Agent",
-    image: "/images/testimonials/jennifer.jpg",
-    content: "I’m Wasiuddin and I’ve been in real estate in Canada for over 14 years . I’ve been working with Skymark Digital for the past 2 years and I’m very happy with their services . They’re professional, responsive, and really understand digital marketing for real estate . I’ve seen great improvement in my online presence. Highly recommend to anyone who wants to take his or her business to the next level",
+    image: "/images/testimonials/user.jpg",
+    content: "I’m Wasiuddin and I’ve been in real estate in Canada for over 14 years. I’ve been working with Skymark Digital for the past 2 years and I’m very happy with their services. They’re professional, responsive, and really understand digital marketing for real estate. I’ve seen great improvement in my online presence. Highly recommend to anyone who wants to take his or her business to the next level.",
     rating: 5,
   },
   {
     name: "Team Malik",
     role: "Real Estate Agent",
-    image: "/images/testimonials/robert.jpg",
-    content: "I am Malik Ashfaque, Realtor with Re/Max from the last 23 years! I will Highly Recommend Skymark Digital to anyone who want to Boost their Business to the Next Level. They are Team of Dedicated Professionals and always provide Excellent Services",
+    image: "/images/testimonials/user.jpg",
+    content: "I am Malik Ashfaque, Realtor with Re/Max from the last 23 years! I will Highly Recommend Skymark Digital to anyone who want to Boost their Business to the Next Level. They are Team of Dedicated Professionals and always provide Excellent Services.",
     rating: 5,
   },
   {
     name: "Rafay Shahdin Real Estate ",
     role: "Real Agent",
-    image: "/images/testimonials/amanda.jpg",
+    image: "/images/testimonials/user.jpg",
     content: "I had an excellent experience with this marketing company. They always donate best for clients.",
     rating: 4,
   },
-  // {
-  //   name: "David Park",
-  //   role: "CTO, SecureNet Solutions",
-  //   image: "/images/testimonials/david.jpg",
-  //   content: "The cybersecurity audit and implementation by Skymark Digital gave us peace of mind. Their team is professional, knowledgeable, and truly understands enterprise security needs.",
-  //   rating: 5,
-  // },
 ]
 
 export function Testimonials() {
@@ -48,12 +41,12 @@ export function Testimonials() {
   }
 
   useEffect(() => {
-  const interval = setInterval(() => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-  }, 5000) // 4 seconds
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+    }, 5000) // 4 seconds
 
-  return () => clearInterval(interval)
-}, [])
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <section id="testimonials" className="relative py-20 overflow-hidden">
@@ -88,8 +81,8 @@ export function Testimonials() {
           <div className="bg-white/60 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12">
             <Quote className="h-8 w-8 text-primary/50" />
 
-            <div className="min-h-[200px]">
-              <p className="text-lg md:text-xl text-foreground leading-relaxed mb-8">
+            <div className="min-h-[250px]">
+              <p className="text-md md:text-md text-foreground leading-relaxed mb-8">
                 {testimonials[currentIndex].content}
               </p>
 
