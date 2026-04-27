@@ -10,28 +10,28 @@ const team = [
     role: "CEO & Founder",
     image: "/images/emad.jpeg",
     linkedin: "https://www.linkedin.com/in/emad-qazi-0632a450/",
-    twitter: "https://twitter.com/",
+    // twitter: "https://twitter.com/",
   },
   {
     name: "Aavish Rabbani",
     role: "VP - Creative Head",
     image: "/images/aavish.jpeg",
     linkedin: "https://www.linkedin.com/in/aavish-rabbani-139b8a17",
-    twitter: "https://twitter.com/",
+    // twitter: "https://twitter.com/",
   },
   {
     name: "Syed Saad Shah",
     role: "Head of Design & Tech",
     image: "/images/saad.jpeg",
     linkedin: "https://www.linkedin.com/in/syed-saad-276714114",
-    twitter: "https://twitter.com/",
+    // twitter: "https://twitter.com/",
   },
   {
     name: "Suleman Bhatti",
     role: "Marketing Head",
     image: "/images/suleman.jpeg",
     linkedin: "https://linkedin.com/",
-    twitter: "https://twitter.com/",
+    // twitter: "https://twitter.com/",
   },
 ]
 
@@ -159,22 +159,6 @@ export function Team() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent 
                                   opacity-0 group-hover:opacity-100 transition duration-500" />
 
-                  {/* Social Icons */}
-                  {/* <div className="absolute inset-0 flex items-end justify-center pb-6">
-                    <div className="flex gap-3 translate-y-4 opacity-0 
-                                    group-hover:opacity-100 group-hover:translate-y-0 
-                                    transition-all duration-500">
-
-                      <Link href="" className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center 
-                                    text-primary hover:bg-primary hover:text-white transition">
-                        <Linkedin size={18} />
-                      </Link>
-                      <Link href="" className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center 
-                                    text-primary hover:bg-primary hover:text-white transition">
-                        <Twitter size={18} />
-                      </Link>
-                    </div>
-                  </div> */}
                   <div className="absolute inset-0 flex items-end justify-center pb-6">
                     <div className="flex gap-3 translate-y-4 opacity-0 
                   group-hover:opacity-100 group-hover:translate-y-0 
@@ -189,17 +173,6 @@ export function Team() {
                  text-primary hover:bg-primary hover:text-white transition"
                       >
                         <Linkedin size={18} />
-                      </Link>
-
-                      {/* Twitter */}
-                      <Link
-                        href={member.twitter}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center 
-                 text-primary hover:bg-primary hover:text-white transition"
-                      >
-                        <Twitter size={18} />
                       </Link>
 
                     </div>

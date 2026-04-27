@@ -2,20 +2,18 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import {
-  Megaphone,
-  Bot,
-  Code,
-  Shield,
-  ArrowRight,
-  BriefcaseIcon,
-  PaletteIcon
-} from "lucide-react"
+import { FaBullhorn, FaLaptopCode } from "react-icons/fa"
+import { HiOutlineCode } from "react-icons/hi"
+import { MdAutoGraph, MdCampaign, MdOutlineSecurity } from "react-icons/md"
+import { AiOutlineRobot } from "react-icons/ai"
+import { FaPalette } from "react-icons/fa"
+import { FaBriefcase } from "react-icons/fa"
 import { Card, CardContent } from "@/components/ui/card"
+import { ArrowRight } from "lucide-react"
 
 const services = [
   {
-    icon: Megaphone,
+    icon: MdCampaign,
     title: "Digital Marketing",
     description:
       "Strategic SEO, social media marketing, Google & Meta advertising, lead generation, and email marketing to boost your online presence.",
@@ -24,8 +22,8 @@ const services = [
     image: "/images/marketing.jpg"
   },
   {
-    icon: Code,
-    title: "Web Development",
+    icon: FaLaptopCode,
+    title: "Development Services",
     description:
       "Custom website design, mobile app development, and software solutions tailored to your unique business requirements.",
     href: "/services/web-development",
@@ -33,7 +31,7 @@ const services = [
     image: "/images/web.png"
   },
   {
-    icon: PaletteIcon,
+    icon: FaPalette,
     title: "Creative Services",
     description:
       "Professional graphic design, video editing, UI/UX design, content management, and brand identity development.",
@@ -42,7 +40,7 @@ const services = [
     image: "/images/creative.png"
   },
   {
-    icon: Bot,
+    icon: MdAutoGraph,
     title: "Automation & AI",
     description:
       "AI automation solutions, smart operations management, and comprehensive ERP solutions to streamline your business processes.",
@@ -51,7 +49,7 @@ const services = [
     image: "/images/automation.png"
   },
   {
-    icon: Shield,
+    icon: MdOutlineSecurity,
     title: "IT & Security",
     description:
       "Robust cyber security services, system & network management, and technical consulting to protect your digital assets.",
@@ -60,7 +58,7 @@ const services = [
     image: "/images/security.jfif"
   },
   {
-    icon: BriefcaseIcon,
+    icon: FaBriefcase,
     title: "Business Services",
     description:
       "Amazon store setup, accounting & bookkeeping, and HR consulting to support your business operations.",
