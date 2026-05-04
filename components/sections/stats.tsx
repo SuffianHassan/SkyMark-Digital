@@ -2,49 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Users, Award, Briefcase, Globe, TrendingUp } from "lucide-react"
-
-const stats = [
-  {
-    icon: Users,
-    value: 236,
-    suffix: "+",
-    label: "Happy Clients",
-    description: "Worldwide",
-    color: "from-sky-500 to-cyan-400",
-    bgColor: "bg-sky-500/10",
-    iconColor: "text-sky-500",
-  },
-  {
-    icon: Award,
-    value: 5,
-    suffix: "+",
-    label: "Years Experience",
-    description: "In Industry",
-    color: "from-amber-500 to-orange-400",
-    bgColor: "bg-amber-500/10",
-    iconColor: "text-amber-500",
-  },
-  {
-    icon: Briefcase,
-    value: 250,
-    suffix: "+",
-    label: "Projects Completed",
-    description: "Successfully",
-    color: "from-emerald-500 to-teal-400",
-    bgColor: "bg-emerald-500/10",
-    iconColor: "text-emerald-500",
-  },
-  {
-    icon: Globe,
-    value: 8,
-    suffix: "+",
-    label: "Countries Served",
-    description: "Globally",
-    color: "from-rose-500 to-pink-400",
-    bgColor: "bg-rose-500/10",
-    iconColor: "text-rose-500",
-  },
-]
+import { useContent } from "@/app/context/ContentContext";
 
 function AnimatedCounter({ value, suffix, color, size = "text-4xl md:text-5xl" }: { value: number; suffix: string; color: string; size?: string }) {
   const [count, setCount] = useState(0)
@@ -101,6 +59,67 @@ function AnimatedCounter({ value, suffix, color, size = "text-4xl md:text-5xl" }
 }
 
 export function Stats() {
+  const slug = "home";
+  const { sectionsBySlug, loadSectionsBySlug, loading, media } = useContent();
+
+  useEffect(() => {
+    loadSectionsBySlug(slug);
+  }, [slug]);
+
+  if (loading && !sectionsBySlug[slug]) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
+  }
+
+  const numbers = sectionsBySlug[slug]?.["Stats"]?.blocks;
+
+  const stats = [
+    {
+      icon: Users,
+      value: 236,
+      suffix: "+",
+      label: "Happy Clients",
+      description: "Worldwide",
+      color: "from-sky-500 to-cyan-400",
+      bgColor: "bg-sky-500/10",
+      iconColor: "text-sky-500",
+    },
+    {
+      icon: Award,
+      value: 5,
+      suffix: "+",
+      label: "Years Experience",
+      description: "In Industry",
+      color: "from-amber-500 to-orange-400",
+      bgColor: "bg-amber-500/10",
+      iconColor: "text-amber-500",
+    },
+    {
+      icon: Briefcase,
+      value: 250,
+      suffix: "+",
+      label: "Projects Completed",
+      description: "Successfully",
+      color: "from-emerald-500 to-teal-400",
+      bgColor: "bg-emerald-500/10",
+      iconColor: "text-emerald-500",
+    },
+    {
+      icon: Globe,
+      value: 8,
+      suffix: "+",
+      label: "Countries Served",
+      description: "Globally",
+      color: "from-rose-500 to-pink-400",
+      bgColor: "bg-rose-500/10",
+      iconColor: "text-rose-500",
+    },
+  ]
+
+
   return (
     <section className="pt-28 pb-36 md:pt-36 bg-white relative overflow-hidden">
 
@@ -121,11 +140,11 @@ export function Stats() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-flex items-center gap-2 text-[#0ea5e9] font-semibold uppercase text-md tracking-wider mb-4">
-            <TrendingUp className="w-6 h-6"/>
-            Our Impact
+            <TrendingUp className="w-6 h-6" />
+            {numbers?.heading1?.text}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
-            Numbers That Speak for Themselves
+            {numbers?.heading2?.text}
           </h2>
           {/* <p className="text-muted-foreground text-lg">
             Our track record demonstrates our commitment to excellence and client success.

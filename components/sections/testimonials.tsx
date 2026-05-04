@@ -21,7 +21,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Rafay Shahdin Real Estate ",
+    name: "Rafay Shahdin Real Estate",
     role: "Real Agent",
     image: "/images/testimonials/user.jpg",
     content: "I had an excellent experience with this marketing company. They always donate best for clients.",

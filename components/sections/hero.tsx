@@ -4,9 +4,12 @@ import { useEffect, useRef } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play, Sparkles } from "lucide-react"
+import { useContent } from "@/app/context/ContentContext"
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const slug = "home";
+  const { sectionsBySlug, loadSectionsBySlug, loading, media } = useContent();
 
   useEffect(() => {
     const container = containerRef.current
@@ -25,6 +28,41 @@ export function Hero() {
   }, [])
 
 
+
+  useEffect(() => {
+    loadSectionsBySlug(slug);
+  }, [slug]);
+
+  if (loading && !sectionsBySlug[slug]) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
+  }
+
+  const hero = sectionsBySlug[slug]?.["Banner"]?.blocks;
+  const getUrl = (imageId?: string) =>
+    media.find((m) => m.id === imageId)?.mediaUrl || null;
+
+  // const whatWeDo = sectionsBySlug[slug]?.["We Do"]?.blocks;
+  // const mission = sectionsBySlug[slug]?.["Mission"]?.blocks;
+  // const whatWeDoObject = sectionsBySlug[slug]?.["We Do"]?.blocks || [];
+  // const whatWeDoBlocks = Array.isArray(whatWeDoObject)
+  //   ? whatWeDoObject
+  //   : Object.values(whatWeDoObject);
+
+  //  src={getUrl(story?.image1?.imageId) || "/defaultImg.jpg"}
+
+  // {whatWeDoBlocks
+  //             .filter((block: any) => block.type === "bulletList")
+  //             .map((block: any, bIndex: number) => (
+  //               <ul style={styles.list} key={bIndex}>
+  //                 {block.text?.map((point: string, idx: number) => (
+  //                   <li key={idx}>{point}</li>
+  //                 ))}
+  //               </ul>
+  //             ))}
   return (
     <section
       ref={containerRef}
@@ -59,17 +97,16 @@ export function Hero() {
           <div>
             <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white px-5 py-2.5 rounded-full text-sm font-medium mb-8 border border-white/20">
               <Sparkles className="w-4 h-4 text-amber-400" />
-              IT Solutions & Digital Marketing
+              {hero?.heading1?.text}
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Transforming Ideas Into{" "}
-              <span className="text-amber-400">Digital Reality</span>
+              {hero?.heading2?.text}{" "}
+              <span className="text-amber-400">{hero?.heading3?.text}</span>
             </h1>
 
             <p className="text-lg text-white/80 max-w-xl mb-10">
-              We deliver cutting-edge IT solutions and result-driven digital marketing strategies
-              that propel your business to new heights.
+              {hero?.paragraph1?.text}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -111,32 +148,32 @@ export function Hero() {
             {/* Floating Card - Top Left*/}
             <div className="absolute -top-6 right-45 -translate-x-1/2 animate-float-slow">
               <div className="bg-white/90 backdrop-blur-md px-5 py-3 rounded-xl shadow-lg text-center">
-                <p className="text-xs text-gray-500">Projects</p>
-                <p className="text-sm font-bold text-blue-600">250+</p>
+                <p className="text-xs text-gray-500">{hero?.heading5?.text}</p>
+                <p className="text-sm font-bold text-blue-600">{hero?.heading6?.text}</p>
               </div>
             </div>
 
-             {/* Floating Card - Middle Right */}
+            {/* Floating Card - Middle Right */}
             <div className="absolute left-1/2 -translate-x-[140px] sm:-translate-x-[180px] md:-translate-x-[220px] top-[65%] -translate-y-1/2 animate-float-slow delay-500">
               <div className="bg-white/90 backdrop-blur-md px-3 py-3 rounded-xl shadow-lg text-center">
-                <p className="text-xs text-gray-500">Experience</p>
-                <p className="text-sm font-bold text-red-500">5+ Years</p>
+                <p className="text-xs text-gray-500">{hero?.heading7?.text}</p>
+                <p className="text-sm font-bold text-red-500">{hero?.heading8?.text}</p>
               </div>
             </div>
 
             {/* Floating Card - Middle Left */}
             <div className="absolute left-1/3 translate-x-[140px] sm:translate-x-[180px] md:translate-x-[240px] -translate-y-2/3 animate-float-slow delay-400">
               <div className="bg-white/90 backdrop-blur-md px-3 py-3 rounded-xl shadow-lg text-center">
-                <p className="text-xs text-gray-500">Satisfaction</p>
-                <p className="text-sm font-bold text-green-600">98%</p>
+                <p className="text-xs text-gray-500">{hero?.heading9?.text}</p>
+                <p className="text-sm font-bold text-green-600">{hero?.heading10?.text}</p>
               </div>
             </div>
 
             {/* Floating Card - Bottom Left */}
             <div className="absolute top-[92%] left-70 -translate-x-1/2 animate-float-slow delay-300">
               <div className="bg-white/90 backdrop-blur-md px-4 py-3 rounded-xl shadow-lg text-center">
-                <p className="text-xs text-gray-500">Countries</p>
-                <p className="text-sm font-bold text-orange-500">8+</p>
+                <p className="text-xs text-gray-500">{hero?.heading11?.text}</p>
+                <p className="text-sm font-bold text-orange-500">{hero?.heading12?.text}</p>
               </div>
             </div>
           </div>
@@ -159,11 +196,11 @@ export function Hero() {
       <div className="absolute bottom-0 left-0 w-full h-56 pointer-events-none z-0 flex justify-center">
         <div className="w-full max-w-5xl text-center mt-25 pt-8 border-t border-white/10">
           <p className="text-md text-white/60 mb-4">
-            Trusted by leading companies worldwide
+            {hero?.paragraph2?.text}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
-            {["Google", "Microsoft", "Amazon", "Meta", "Salesforce"].map((company) => (
+            {[hero?.heading13?.text, hero?.heading14?.text, hero?.heading15?.text, hero?.heading16?.text, hero?.heading17?.text].map((company) => (
               <span key={company} className="text-xl font-bold text-white">
                 {company}
               </span>

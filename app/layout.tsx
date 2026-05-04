@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
+// import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import Providers from './Providers';
+import { ToastContainer } from 'react-toastify';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -26,10 +28,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="font-sans antialiased bg-white">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+    <html lang="en">
+      <body className={`${inter.variable} font-sans antialiased`}>
+          <Providers>
+            <ToastContainer />
+            {children}
+          </Providers>
       </body>
     </html>
   )
