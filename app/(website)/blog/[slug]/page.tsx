@@ -1,8 +1,8 @@
 "use client";
 
 import { blogs } from "@/components/data/blog";
-import { Header } from "@/components/layout/header";
-import { TopBar } from "@/components/layout/top-bar";
+// import { Header } from "@/components/layout/header";
+// import { TopBar } from "@/components/layout/top-bar";
 import { BlogBanner } from "@/components/services/banners/blog-banner";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -24,8 +24,8 @@ export default function BlogDetail() {
 
   return (
     <div>
-      <TopBar />
-      <Header />
+      {/* <TopBar />
+      <Header /> */}
       <BlogBanner />
       {/* 📄 CONTENT AREA */}
       
