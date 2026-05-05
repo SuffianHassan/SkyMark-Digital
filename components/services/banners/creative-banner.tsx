@@ -88,7 +88,7 @@ export function CreativeMarketingBanner() {
           {/* INNER IMAGE */}
           <div className="relative w-[330px] h-[330px] rounded-full overflow-hidden left-6 -top-6 border-8 border-white shadow-xl">
             <img
-              src="/images/banners/creative.webp"
+              src="/images/banners/creative.png"
               alt="Marketing"
               className="w-full h-full object-cover animate-[zoomSlow_25s_ease-in-out_infinite_alternate]"
             />

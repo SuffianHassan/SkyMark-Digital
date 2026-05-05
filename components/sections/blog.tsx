@@ -9,7 +9,7 @@ const posts = [
   {
     title: "The Future of AI in Digital Marketing",
     excerpt: "Discover how artificial intelligence is revolutionizing the way businesses connect with their customers.",
-    image: "/images/blog/ai-marketing.jpg",
+    image: "/images/blog/ai-marketing.png",
     author: "Michael Chen",
     date: "March 15, 2026",
     category: "AI & Technology",
@@ -18,7 +18,7 @@ const posts = [
   {
     title: "10 SEO Strategies for 2026",
     excerpt: "Stay ahead of the competition with these proven search engine optimization techniques.",
-    image: "/images/blog/seo-strategies.jpg",
+    image: "/images/blog/seo-strategies.png",
     author: "Sarah Johnson",
     date: "March 12, 2026",
     category: "Digital Marketing",
@@ -27,7 +27,7 @@ const posts = [
   {
     title: "Building Secure Web Applications",
     excerpt: "Essential security practices every developer should implement in their web projects.",
-    image: "/images/blog/web-security.jpg",
+    image: "/images/blog/web-security.png",
     author: "David Williams",
     date: "March 10, 2026",
     category: "Web Development",

@@ -39,7 +39,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/hrconsulting.jfif",
+    image: "/images/services/hr.jpg",
     title: "Technical & HR Consulting",
     description: "Get expert guidance on technology decisions and IT staffing. Our consultants help you make informed choices that align with your business objectives.",
     features: [

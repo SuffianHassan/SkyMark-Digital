@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    image: "/images/services/web-development.avif",
+    image: "/images/services/web-development.jpg",
     title: "Website Design & Development",
     description: "Create stunning, high-performance websites that captivate visitors and convert them into customers. Our web development team builds responsive, SEO-friendly websites using the latest technologies.",
     features: [
@@ -26,7 +26,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/mobile-development.jfif",
+    image: "/images/services/mobile-development.jpg",
     title: "Mobile App Development",
     description: "Bring your ideas to life with custom mobile applications for iOS and Android. We develop user-friendly apps that deliver exceptional experiences and drive engagement.",
     features: [

@@ -19,7 +19,7 @@ const services = [
       "Strategic SEO, social media marketing, Google & Meta advertising, lead generation, and email marketing to boost your online presence.",
     href: "/services/digital-marketing",
     color: "bg-gradient-to-br from-blue-500 via-sky-700 to-cyan-400",
-    image: "/images/marketing.jpg"
+    image: "/images/marketing.png"
   },
   {
     icon: FaLaptopCode,
@@ -28,7 +28,7 @@ const services = [
       "Custom website design, mobile app development, and software solutions tailored to your unique business requirements.",
     href: "/services/web-development",
     color: "bg-gradient-to-br from-amber-400 via-orange-600 to-yellow-500",
-    image: "/images/web.png"
+    image: "/images/web-development.jpg"
   },
   {
     icon: FaPalette,

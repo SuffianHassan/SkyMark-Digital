@@ -26,7 +26,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/aioperations.jpg",
+    image: "/images/services/aioperations.png",
     title: "Smart Operations & Management",
     description: "Optimize your business operations with intelligent management systems. We implement smart solutions that enhance efficiency and reduce operational costs.",
     features: [
@@ -39,7 +39,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/aierp.jpg",
+    image: "/images/services/aierp.png",
     title: "ERP Solutions",
     description: "Integrate all your business processes with comprehensive ERP solutions. We help you select, implement, and customize ERP systems that fit your unique needs.",
     features: [

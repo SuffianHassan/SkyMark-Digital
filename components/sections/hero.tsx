@@ -45,28 +45,9 @@ export function Hero() {
   const getUrl = (imageId?: string) =>
     media.find((m) => m.id === imageId)?.mediaUrl || null;
 
-  // const whatWeDo = sectionsBySlug[slug]?.["We Do"]?.blocks;
-  // const mission = sectionsBySlug[slug]?.["Mission"]?.blocks;
-  // const whatWeDoObject = sectionsBySlug[slug]?.["We Do"]?.blocks || [];
-  // const whatWeDoBlocks = Array.isArray(whatWeDoObject)
-  //   ? whatWeDoObject
-  //   : Object.values(whatWeDoObject);
-
-  //  src={getUrl(story?.image1?.imageId) || "/defaultImg.jpg"}
-
-  // {whatWeDoBlocks
-  //             .filter((block: any) => block.type === "bulletList")
-  //             .map((block: any, bIndex: number) => (
-  //               <ul style={styles.list} key={bIndex}>
-  //                 {block.text?.map((point: string, idx: number) => (
-  //                   <li key={idx}>{point}</li>
-  //                 ))}
-  //               </ul>
-  //             ))}
   return (
     <section
       ref={containerRef}
-      // className="relative min-h-[100vh] flex items-start pt-24 lg:pt-28 overflow-hidden gradient-hero"
       className="relative min-h-[80vh] lg:min-h-[60vh] flex items-start pt-20 lg:pt-24 overflow-hidden gradient-hero"
       style={{ "--mouse-x": "50%", "--mouse-y": "50%" } as React.CSSProperties}
     >

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    image: "/images/services/graphic.jfif",
+    image: "/images/services/graphic.jpg",
     title: "Graphic Designing",
     description: "Make a lasting impression with stunning visual designs. Our creative team crafts compelling graphics that communicate your message effectively and strengthen your brand identity.",
     features: [
@@ -39,7 +39,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/ui-design.webp",
+    image: "/images/services/ui-design.jpg",
     title: "UI/UX Designing",
     description: "Create intuitive, user-centered digital experiences. Our UI/UX designers combine aesthetics with functionality to deliver interfaces that users love.",
     features: [
@@ -52,7 +52,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/content.webp",
+    image: "/images/services/content.jpg",
     title: "Content Management",
     description: "Keep your content fresh, relevant, and engaging. Our content management services ensure your digital presence stays current and continues to attract your target audience.",
     features: [

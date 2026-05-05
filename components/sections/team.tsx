@@ -79,7 +79,7 @@ export function Team() {
 
             {/* Bottom Right Card */}
             <div className="hidden sm:block absolute bottom-3 right-1 w-44 h-28 rounded-xl overflow-hidden shadow-lg hover:shadow-[0_10px_40px_rgba(0,0,0,0.25)] hover:translate-y-2 transition duration-300 z-20">
-              <Image src="/images/data.jpg" alt="" fill className="object-cover" />
+              <Image src="/images/data.png" alt="" fill className="object-cover" />
             </div>
 
           </div>
