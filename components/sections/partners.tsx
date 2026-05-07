@@ -12,7 +12,7 @@ const partners = [
   { logo: "/images/logos/sf.png" },
   { logo: "/images/logos/st.png" },
   // { logo: "/images/logos/unknown.png" },
-  { logo: "/images/logos/gwg.jpg" },
+  { logo: "/images/logos/gwg.png" },
 ]
 
 // duplicate for seamless loop

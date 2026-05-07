@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    image: "/images/services/seo.jpg",
+    image: "/images/services/seo.avif",
     title: "Search Engine Optimization (SEO)",
     description: "Dominate search results with our data-driven SEO strategies. We optimize your website to rank higher on Google and other search engines, driving organic traffic and increasing visibility.",
     features: [
@@ -26,7 +26,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/smm.jpg",
+    image: "/images/services/smm.png",
     title: "Social Media Marketing",
     description: "Build a powerful social media presence that engages your audience and drives results. Our social media experts create compelling content and strategies across all major platforms.",
     features: [
@@ -52,7 +52,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/lead.jpg",
+    image: "/images/services/lead.webp",
     title: "Lead Generation",
     description: "Generate high-quality leads that convert into customers. Our lead generation strategies combine multiple channels to create a consistent flow of potential clients.",
     features: [
@@ -65,7 +65,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/email.jpg",
+    image: "/images/services/email.jfif",
     title: "Email Marketing",
     description: "Nurture leads and retain customers with strategic email marketing campaigns. We create personalized email sequences that drive engagement and conversions.",
     features: [

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    image: "/images/services/amazon.jpg",
+    image: "/images/services/amazon.jfif",
     title: "Amazon Store Setup",
     description: "Launch and grow your Amazon business with our comprehensive store setup and management services. We help you navigate the Amazon marketplace and maximize your sales potential.",
     features: [
@@ -32,7 +32,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/accounting.png",
+    image: "/images/services/accounting.jfif",
     title: "Accounting & Bookkeeping",
     description: "Keep your finances in order with our professional accounting and bookkeeping services. We provide accurate, timely financial management so you can focus on growing your business.",
     features: [
@@ -45,7 +45,7 @@ const services = [
     ],
   },
   {
-    image: "/images/services/hrconsulting.jpg",
+    image: "/images/services/hrconsulting.jfif",
     title: "HR Consulting",
     description: "Build and manage a high-performing team with our HR consulting services. We help you attract, develop, and retain top talent while ensuring compliance with regulations.",
     features: [
