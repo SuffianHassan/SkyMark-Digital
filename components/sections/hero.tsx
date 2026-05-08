@@ -154,177 +154,328 @@ export function Hero() {
               </div>
             </div>
           </div> */}
-          
-          <div className="relative flex items-center justify-center min-h-[560px] w-full overflow-visible">
-            {/* Background Glow */}
-            <div className="absolute w-[480px] h-[480px] rounded-full bg-blue-500/25 blur-3xl" />
-            <div className="absolute w-[320px] h-[320px] rounded-full bg-amber-400/25 blur-2xl" />
 
-            {/* OUTER ORBIT RING */}
-            <div className="absolute w-[420px] h-[420px] rounded-full border border-white/30 animate-spin-slow" />
+          <div className="relative flex items-center justify-center min-h-[620px] md:min-h-[420px] sm:min-h-[380px] w-full overflow-visible">
 
-            {/* SECOND ORBIT RING */}
-            <div className="absolute w-[340px] h-[340px] rounded-full border border-cyan-400/30 animate-spin-reverse" />
+            {/* BACKGROUND GLOW */}
+            <div className="absolute w-[620px] h-[620px] rounded-full bg-cyan-500/10 blur-3xl" />
+            <div className="absolute w-[420px] h-[420px] rounded-full bg-purple-500/10 blur-3xl" />
 
-            {/* SEGMENTED SERVICE WHEEL */}
-            <div className="relative w-[340px] h-[340px] animate-spin-slow">
+            {/* OUTER ORBIT RINGS */}
+            <div className="absolute w-[340px] h-[340px] md:w-[520px] md:h-[420px] rounded-full border border-cyan-400/25" />
+            <div className="absolute w-[260px] h-[260px] md:w-[420px] md:h-[320px] rounded-full border border-white/10" />
+
+            {/* MAIN ORBIT CONTAINER */}
+            <div className="relative w-[340px] h-[340px] md:w-[520px] md:h-[520px] animate-orbit">
 
               {[
-                { label: "Facebook Icon", icon: "/images/facebook.png" },
-                { label: "YouTube Icon", icon: "/images/youtube.png" },
-                { label: "Instagram Icon", icon: "/images/instagram.png" },
-                { label: "TikTok Icon", icon: "/images/tiktok.png" },
-                { label: "Twitter Icon", icon: "/images/twitter.png" },
-                { label: "LinkedIn Icon", icon: "/images/linkedin.png" },
-              ].map((item, i) => {
-                const angle = (360 / 6) * i;
-                const glowColors = [
-                  "shadow-cyan-500/70",
-                  "shadow-purple-500/70",
-                  "shadow-blue-500/70",
-                  "shadow-emerald-500/70",
-                  "shadow-pink-500/70",
-                  "shadow-amber-500/70",
-                ];
+                "/images/facebook.png",
+                "/images/youtube.png",
+                "/images/instagram.png",
+                "/images/tiktok.png",
+                "/images/twitter.png",
+                "/images/reddit.png",
+                "/images/pinterest.png",
+                "/images/snapchat.png",
+                "/images/whatsapp.png",
+                "/images/telegram.png",
+                "/images/discord.png",
+                "/images/linkedin.png",
+              ].map((icon, i) => {
+
+                const total = 12
+                const angle = (360 / total) * i
+                const radius = typeof window !== "undefined" && window.innerWidth < 768
+                  ? 145
+                  : 235
 
                 return (
                   <div
                     key={i}
                     className="absolute left-1/2 top-1/2"
                     style={{
-                      transform: `rotate(${angle}deg) translateY(-155px)`,
+                      transform: `
+                      rotate(${angle}deg)
+                      translateX(${radius}px)
+                    `,
                       transformOrigin: "center",
                     }}
                   >
+
+                    {/* KEEP ICON UPRIGHT */}
                     <div
-                      className={`
-              w-[96px]
-              h-[96px]
-              rounded-2xl
-              border
-              border-white/40
-              bg-white/35
-              backdrop-blur-xl
-              flex
-              flex-col
-              items-center
-              justify-center
-              shadow-xl
-              text-center
-              hover:scale-105
-              transition-transform
-              duration-300
-              animate-pulse-glow
-              ${glowColors[i]}
-            `}
                       style={{
                         transform: `rotate(-${angle}deg)`,
-                        animationDelay: `${i * 0.4}s`,
                       }}
+                      className="relative flex items-center justify-center"
                     >
-                      {/* ICON */}
-                      <img
-                        src={item.icon}
-                        alt={item.label}
-                        className="w-14 h-14 mb-1 opacity-100"
+
+                      {/* FLOATING DOTS */}
+                      <div
+                        className="absolute -top-4 left-1/2 w-2 h-2 rounded-full bg-yellow-300 animate-dotFlash"
+                        style={{
+                          animationDelay: `${i * 0.3}s`,
+                        }}
                       />
 
-                      {/* LABEL */}
-                      {/* <p className="text-white/70 text-[10px] tracking-wide leading-tight px-1">
-                        {item.label}
-                      </p> */}
+                      <div
+                        className="absolute top-1/2 -right-5 w-2 h-2 rounded-full bg-white animate-dotFlash"
+                        style={{
+                          animationDelay: `${i * 0.5}s`,
+                        }}
+                      />
+
+                      <div
+                        className="absolute -bottom-4 left-0 w-1.5 h-1.5 rounded-full bg-cyan-300 animate-dotFlash"
+                        style={{
+                          animationDelay: `${i * 0.7}s`,
+                        }}
+                      />
+
+                      {/* CONNECTING LINE */}
+                      <div className="absolute w-[2px] h-[240px] bg-gradient-to-b from-cyan-400/60 to-transparent rotate-90 origin-top" />
+
+                      {/* ICON CARD */}
+                      <div className={`
+                        relative
+                        w-[58px] h-[58px] md:w-[92px] md:h-[92px]
+                        rounded-[28px]
+                        border
+                        border-white/20
+                        bg-white/10
+                        backdrop-blur-xl
+                        flex
+                        items-center
+                        justify-center
+                        shadow-[0_0_35px_rgba(34,211,238,0.15)]
+                        hover:scale-110
+                        transition-all
+                        duration-500
+                      `}>
+
+                        {/* OUTER GLOW */}
+                        <div className="absolute inset-0 rounded-[28px] bg-cyan-400/70 blur-xl" />
+
+                        <img
+                          src={icon}
+                          alt=""
+                          className="relative z-10 w-7 h-7 md:w-12 md:h-12 object-contain"
+                        />
+
+                      </div>
                     </div>
                   </div>
-                );
+                )
               })}
 
-              {/* CENTER CORE */}
+              {/* CENTER SECTION */}
               <div className="absolute inset-0 flex items-center justify-center">
 
-                {/* Inner Ring */}
-                <div className="absolute w-[190px] h-[190px] rounded-full border border-cyan-400/40 animate-spin-slow" />
+                {/* CENTER RINGS */}
+                <div className="absolute w-[170px] h-[170px] md:w-[280px] md:h-[280px] rounded-full border border-cyan-400/20" />
+                <div className="absolute w-[150px] h-[150px] md:w-[250px] md:h-[250px] rounded-full border border-purple-400/20" />
 
-                {/* Core Glow */}
-                <div className={`
-        relative
-        w-[150px]
-        h-[150px]
-        rounded-full
-        bg-gradient-to-br
-        from-blue-500
-        via-cyan-400
-        to-amber-300
-        flex
-        items-center
-        justify-center
-        shadow-[0_0_80px_rgba(34,211,238,0.35)]
-      `}>
+                {/* CENTER CORE */}
+                {/* <div className={`
+                    relative
+                    w-[140px] h-[140px] md:w-[220px] md:h-[220px]
+                    rounded-full
+                    bg-gradient-to-br
+                    from-cyan-400
+                    via-blue-500
+                    to-amber-300
+                    flex
+                    items-center
+                    justify-center
+                    shadow-[0_0_90px_rgba(34,211,238,0.35)]
+                  `}>
 
-                  {/* Glass Layer */}
-                  <div className="absolute inset-2 rounded-full bg-black/20 backdrop-blur-xl border border-white/10" />
+                  <div className="absolute inset-[8px] rounded-full bg-[#001A33]/90 border border-white/10 backdrop-blur-xl" />
 
-                  {/* <img
-                    src="/images/hero-orbit.png"
-                    alt="Digital Services"
-                    className="relative z-10 w-[95px] animate-core-float"
-                  /> */}
-                  <div className="absolute inset-0 flex items-center justify-center text-center px-4">
-                    
-                    {/* Core content */}
-                    <div className="relative z-10 flex flex-col items-center justify-center">
-                    
-                      {/* Main Title */}
-                      <h2 className="text-white text-[14px] md:text-[16px] font-bold tracking-widest uppercase">
-                        Digital Growth Engine
-                      </h2>
+                  <div className="relative z-10 text-center px-6">
+                    <h2 className={`
+                      text-white
+                      text-[11px] md:text-[20px]
+                      font-bold
+                      uppercase
+                      tracking-[0.08em] md:tracking-[0.15em]
+                      leading-tight
+                    `}>
+                      Digital
+                      <br />
+                      Growth
+                      <br />
+                      Engine
+                    </h2>
+                  </div>
+                </div> */}
+                <div className="relative z-10 flex items-center justify-center w-[140px] h-[140px] md:w-[220px] md:h-[220px] overflow-hidden rounded-full">
 
-                      {/* Sub text */}
-                      {/* <p className="text-white/60 text-[10px] mt-2 max-w-[140px] leading-tight">
-                        Turning social presence into measurable business growth
-                      </p> */}
+                  <div className={`
+                    absolute
+                    inset-0
+                    rounded-full
+                    bg-gradient-to-br
+                    from-[#16a0ff]/80
+                    via-[#f4c02b]/90
+                    to-[#fe9a00]/10
+                  `} />
 
-                      {/* Optional glow tag */}
-                      {/* <div className="mt-3 px-3 py-1 rounded-full bg-white/10 border border-white/10 backdrop-blur-md">
-                        <p className="text-cyan-300 text-[9px] tracking-widest">
-                          ENGAGE • SCALE • CONVERT
-                        </p>
-                      </div> */}
+                  {/* GLOSS SHINE */}
+                  <div className={`
+                    absolute
+                    top-0
+                    left-0
+                    w-full
+                    h-1/2
+                    rounded-t-full
+                    bg-white/20
+                    blur-2xl
+                    opacity-10
+                  `} />
 
-                    </div>
+                  {/* INNER GLOW */}
+                  <div className={`
+                    absolute
+                    inset-3
+                    rounded-full
+                    bg-gradient-to-br
+                    from-cyan-400/90
+                    to-amber-300/10
+                    shadow-[inset_0_0_50px_rgba(255,255,255,0.15)]
+                  `} />
+
+                  {/* OUTER SHADOW */}
+                  <div className={`
+                    absolute
+                    inset-0
+                    rounded-full
+                    shadow-[0_0_80px_rgba(22,160,243,0.45),0_0_120px_rgba(254,154,0,0.25)]
+                  `} />
+
+                  {/* GLASS OVERLAY */}
+                  <div className={`
+                    absolute
+                    inset-[10px]
+                    rounded-full
+                    bg-black/5
+                    backdrop-blur-sm
+                    border
+                    border-white/10
+                  `} />
+
+                  {/* CENTER LIGHT */}
+                  <div className={`
+                    absolute
+                    w-[55%]
+                    h-[55%]
+                    rounded-full
+                    bg-white/5
+                    blur-1xl
+                  `} />
+                  {/* TEXT */}
+                  <div className="relative z-20 text-center px-6">
+
+                    <h2 className={`
+                        text-white
+                        text-[11px]
+                        md:text-[20px]
+                        font-bold
+                        uppercase
+                        tracking-[0.08em]
+                        md:tracking-[0.15em]
+                        leading-tight
+                        drop-shadow-[0_0_20px_rgba(255,255,255,0.35)]
+                      `}>
+                      {hero?.heading17?.text}
+                      <br />
+                      {hero?.heading18?.text}
+                      <br />
+                      {hero?.heading19?.text}
+                    </h2>
+
+                    <p className={`
+                      mt-2
+                      text-[7px]
+                      md:text-[11px]
+                      text-white/70
+                      tracking-[0.2em]
+                      uppercase
+                    `}>
+                      {hero?.heading20?.text}
+                    </p>
 
                   </div>
                 </div>
-
               </div>
             </div>
 
             {/* LEFT FLOATING CARD */}
-            <div className="absolute left-0 top-20 animate-float-card">
-              <div className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl px-5 py-4 shadow-2xl">
-                <p className="text-white/50 text-xs tracking-widest">GROWTH</p>
-                <h3 className="text-white text-2xl font-bold">+245%</h3>
-                <p className="text-cyan-300 text-sm">Revenue Boost</p>
+            <div className="absolute left-1/2 -translate-x-1/2 md:translate-x-0 md:left-0 top-0 md:top-20 animate-float-card">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl px-3 py-2 md:px-5 md:py-4 shadow-2xl">
+                <p className="text-white/50 text-xs tracking-widest">{hero?.heading5?.text}</p>
+                <h3 className="text-white text-lg md:text-2xl font-bold">{hero?.heading6?.text}</h3>
+                <p className="text-cyan-300 text-sm">{hero?.heading7?.text}</p>
               </div>
             </div>
 
             {/* RIGHT FLOATING CARD */}
-            <div className="absolute right-0 bottom-20 animate-float-card delay-500">
-              <div className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl px-5 py-4 shadow-2xl">
-                <p className="text-white/50 text-xs tracking-widest">TRAFFIC</p>
-                <h3 className="text-white text-2xl font-bold">120K</h3>
-                <p className="text-amber-300 text-sm">Monthly Users</p>
+            <div className="absolute left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 bottom-0 md:bottom-20 animate-float-card delay-500">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl px-3 py-2 md:px-5 md:py-4 shadow-2xl">
+                <p className="text-white/50 text-xs tracking-widest">{hero?.heading9?.text}</p>
+                <h3 className="text-white text-lg md:text-2xl font-bold">{hero?.heading10?.text}</h3>
+                <p className="text-amber-300 text-sm">{hero?.heading11?.text}</p>
               </div>
             </div>
-
-            {/* FLOATING DOTS */}
-            <div className="absolute top-16 right-20 w-3 h-3 rounded-full bg-cyan-400 animate-ping" />
-            <div className="absolute top-40 left-16 w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-            <div className="absolute bottom-24 right-10 w-2 h-2 rounded-full bg-blue-400 animate-ping delay-700" />
-
           </div>
-
         </div>
       </div>
+      <style jsx>{`
+        .animate-orbit {
+          animation: orbitRotate 28s linear infinite;
+        }
+
+        .animate-float-card {
+          animation: floatCard 6s ease-in-out infinite;
+        }
+
+        .animate-dotFlash {
+          animation: dotFlash 2.5s ease-in-out infinite;
+        }
+
+        @keyframes orbitRotate {
+          from {
+            transform: rotate(0deg);
+          }
+
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes floatCard {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+
+          50% {
+            transform: translateY(-12px);
+          }
+        }
+
+        @keyframes dotFlash {
+          0%, 100% {
+            opacity: 0.2;
+            transform: scale(0.8);
+          }
+
+          50% {
+            opacity: 1;
+            transform: scale(1.8);
+          }
+        }
+
+      `}</style>
 
       {/* floating animation */}
       {/* <style jsx>{`
@@ -338,59 +489,6 @@ export function Hero() {
           100% { transform: translateY(0px); }
         }
       `}</style> */}
-
-      <style jsx>{`
-.animate-spin-slow {
-  animation: spin 22s linear infinite;
-}
-
-.animate-spin-reverse {
-  animation: spinReverse 28s linear infinite;
-}
-
-.animate-core-float {
-  animation: coreFloat 5s ease-in-out infinite;
-}
-
-.animate-float-card {
-  animation: floatCard 6s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 3s ease-in-out infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes spinReverse {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
-}
-
-@keyframes coreFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes floatCard {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 0 rgba(34,211,238,0);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(34,211,238,0.25);
-  }
-}
-`}
-      </style>
-
 
       <div className="absolute bottom-0 left-0 w-full h-56 pointer-events-none z-0 flex justify-center">
         <div className="w-full max-w-5xl text-center mt-25 pt-8 border-t border-white/10">

@@ -1,5 +1,6 @@
 "use client"
 
+import { useContent } from "@/app/context/ContentContext";
 import {
   Zap,
   Target,
@@ -9,48 +10,66 @@ import {
   Shield,
   CheckCircle
 } from "lucide-react"
-
-const features = [
-  {
-    icon: Zap,
-    title: "Innovative Solutions",
-    description: "Cutting-edge technology and creative strategies that keep you ahead of the competition.",
-  },
-  {
-    icon: Target,
-    title: "Results-Driven Approach",
-    description: "Every strategy is designed with measurable outcomes and clear ROI in mind.",
-  },
-  {
-    icon: Clock,
-    title: "On-Time Delivery",
-    description: "We respect deadlines and deliver quality work within the agreed timeframe.",
-  },
-  {
-    icon: Headphones,
-    title: "24/7 Support",
-    description: "Round-the-clock assistance ensures your business never faces downtime.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Scalable Growth",
-    description: "Solutions that grow with your business, adapting to your evolving needs.",
-  },
-  {
-    icon: Shield,
-    title: "Secure & Reliable",
-    description: "Enterprise-grade security measures to protect your data and operations.",
-  },
-]
-
-const highlights = [
-  "Industry-leading expertise across multiple domains",
-  "Tailored solutions for your unique business needs",
-  "Transparent communication and project management",
-  "Competitive pricing without compromising quality",
-]
+import { useEffect } from "react";
 
 export function WhyChooseUs() {
+  const slug = "home";
+  const { sectionsBySlug, loadSectionsBySlug, loading, media } = useContent();
+
+  useEffect(() => {
+    loadSectionsBySlug(slug);
+  }, [slug]);
+
+  if (loading && !sectionsBySlug[slug]) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
+  }
+
+  const why = sectionsBySlug[slug]?.["Why Choose Us"]?.blocks;
+
+  const features = [
+    {
+      icon: Zap,
+      title: "Innovative Solutions",
+      description: "Cutting-edge technology and creative strategies that keep you ahead of the competition.",
+    },
+    {
+      icon: Target,
+      title: "Results-Driven Approach",
+      description: "Every strategy is designed with measurable outcomes and clear ROI in mind.",
+    },
+    {
+      icon: Clock,
+      title: "On-Time Delivery",
+      description: "We respect deadlines and deliver quality work within the agreed timeframe.",
+    },
+    {
+      icon: Headphones,
+      title: "24/7 Support",
+      description: "Round-the-clock assistance ensures your business never faces downtime.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Scalable Growth",
+      description: "Solutions that grow with your business, adapting to your evolving needs.",
+    },
+    {
+      icon: Shield,
+      title: "Secure & Reliable",
+      description: "Enterprise-grade security measures to protect your data and operations.",
+    },
+  ]
+
+  const highlights = [
+    "Industry-leading expertise across multiple domains",
+    "Tailored solutions for your unique business needs",
+    "Transparent communication and project management",
+    "Competitive pricing without compromising quality",
+  ]
+
   return (
     <section className="relative py-30 bg-white overflow-hidden">
 
@@ -79,7 +98,7 @@ export function WhyChooseUs() {
           {/* Left Content */}
           <div>
             <span className="text-[#0ea5e9] font-semibold uppercase tracking-wider text-md">
-              Why Choose Us
+
             </span>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
@@ -112,7 +131,7 @@ export function WhyChooseUs() {
                   border border-white/40
                   hover:shadow-xl hover:-translate-y-1
                   transition-all duration-300 group"
-                >
+              >
                 {/* ICON */}
                 <div className="inline-flex items-center justify-center w-12 h-12 
                   bg-[#0ea5e9]/10 rounded-lg mb-4 

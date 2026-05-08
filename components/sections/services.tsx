@@ -2,89 +2,58 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import { FaBullhorn, FaLaptopCode } from "react-icons/fa"
-import { HiOutlineCode } from "react-icons/hi"
+import { FaLaptopCode } from "react-icons/fa"
 import { MdAutoGraph, MdCampaign, MdOutlineSecurity } from "react-icons/md"
-import { AiOutlineRobot } from "react-icons/ai"
 import { FaPalette } from "react-icons/fa"
 import { FaBriefcase } from "react-icons/fa"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight } from "lucide-react"
+import { useContent } from "@/app/context/ContentContext"
 
-const services = [
-  {
-    icon: MdCampaign,
-    title: "Digital Marketing",
-    description:
-      "Strategic SEO, social media marketing, Google & Meta advertising, lead generation, and email marketing to boost your online presence.",
-    href: "/services/digital-marketing",
-    color: "bg-gradient-to-br from-blue-500 via-sky-700 to-cyan-400",
-    image: "/images/marketing.jpg"
-  },
-  {
-    icon: FaLaptopCode,
-    title: "Development Services",
-    description:
-      "Custom website design, mobile app development, and software solutions tailored to your unique business requirements.",
-    href: "/services/web-development",
-    color: "bg-gradient-to-br from-amber-400 via-orange-600 to-yellow-500",
-    image: "/images/web.png"
-  },
-  {
-    icon: FaPalette,
-    title: "Creative Services",
-    description:
-      "Professional graphic design, video editing, UI/UX design, content management, and brand identity development.",
-    href: "/services/creative-services",
-    color: "bg-gradient-to-br from-red-500 via-rose-800 to-red-500",
-    image: "/images/creative.png"
-  },
-  {
-    icon: MdAutoGraph,
-    title: "Automation & AI",
-    description:
-      "AI automation solutions, smart operations management, and comprehensive ERP solutions to streamline your business processes.",
-    href: "/services/automation-ai",
-    color: "bg-gradient-to-br from-slate-600 via-gray-800 to-zinc-800",
-    image: "/images/automation.png"
-  },
-  {
-    icon: MdOutlineSecurity,
-    title: "IT & Security",
-    description:
-      "Robust cyber security services, system & network management, and technical consulting to protect your digital assets.",
-    href: "/services/it-security",
-    color: "bg-gradient-to-br from-blue-700 via-blue-500 to-black",
-    image: "/images/security.jfif"
-  },
-  {
-    icon: FaBriefcase,
-    title: "Business Services",
-    description:
-      "Amazon store setup, accounting & bookkeeping, and HR consulting to support your business operations.",
-    href: "/services/business-services",
-    color: "bg-gradient-to-br from-emerald-500 via-green-800 to-teal-500",
-    image: "/images/business.jfif"
-  },
-]
 
 /* -------------------- SCROLL HOOK -------------------- */
+// function useInView(threshold = 0.2) {
+//   const ref = useRef<HTMLDivElement | null>(null)
+//   const [isInView, setIsInView] = useState(false)
+
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setIsInView(true)
+//           observer.disconnect() // run once
+//         }
+//       },
+//       { threshold }
+//     )
+
+//     if (ref.current) observer.observe(ref.current)
+
+//     return () => observer.disconnect()
+//   }, [threshold])
+
+//   return { ref, isInView }
+// }
 function useInView(threshold = 0.2) {
   const ref = useRef<HTMLDivElement | null>(null)
   const [isInView, setIsInView] = useState(false)
 
   useEffect(() => {
+    const element = ref.current
+
+    if (!element) return
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true)
-          observer.disconnect() // run once
+          observer.unobserve(element)
         }
       },
       { threshold }
     )
 
-    if (ref.current) observer.observe(ref.current)
+    observer.observe(element)
 
     return () => observer.disconnect()
   }, [threshold])
@@ -94,7 +63,79 @@ function useInView(threshold = 0.2) {
 
 /* -------------------- COMPONENT -------------------- */
 export function Services() {
+  // const slug = "home";
+
+  const { sectionsBySlug, loadSectionsBySlug, loading, media } = useContent();
+
   const { ref, isInView } = useInView(0.2)
+
+  useEffect(() => {
+    loadSectionsBySlug("home");
+  }, []);
+
+  const service = sectionsBySlug["home"]?.["Services"]?.blocks;
+
+  if (!service) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
+  }
+
+  const getUrl = (imageId?: string) =>
+    media.find((m) => m.id === imageId)?.mediaUrl || null;
+
+  const services = [
+    {
+      icon: MdCampaign,
+      title: service?.heading3?.text,
+      description: service?.paragraph2?.text,
+      href: "/services/digital-marketing",
+      color: "bg-gradient-to-br from-blue-500 via-sky-700 to-cyan-400",
+      image: getUrl(service?.image1?.imageId) || "/images/marketing.jpg"
+    },
+    {
+      icon: FaLaptopCode,
+      title: service?.heading4?.text,
+      description: service?.paragraph3?.text,
+      href: "/services/web-development",
+      color: "bg-gradient-to-br from-amber-400 via-orange-600 to-yellow-500",
+      image: getUrl(service?.image2?.imageId) || "/images/web.png"
+    },
+    {
+      icon: FaPalette,
+      title: service?.heading5?.text,
+      description: service?.paragraph4?.text,
+      href: "/services/creative-services",
+      color: "bg-gradient-to-br from-red-500 via-rose-800 to-red-500",
+      image: getUrl(service?.image3?.imageId) || "/images/creative.png"
+    },
+    {
+      icon: MdAutoGraph,
+      title: service?.heading6?.text,
+      description: service?.paragraph5?.text,
+      href: "/services/automation-ai",
+      color: "bg-gradient-to-br from-slate-600 via-gray-800 to-zinc-800",
+      image: getUrl(service?.image4?.imageId) || "/images/automation.png"
+    },
+    {
+      icon: MdOutlineSecurity,
+      title: service?.heading7?.text,
+      description: service?.paragraph6?.text,
+      href: "/services/it-security",
+      color: "bg-gradient-to-br from-blue-700 via-blue-500 to-black",
+      image: getUrl(service?.image5?.imageId) || "/images/security.jfif"
+    },
+    {
+      icon: FaBriefcase,
+      title: service?.heading8?.text,
+      description: service?.paragraph7?.text,
+      href: "/services/business-services",
+      color: "bg-gradient-to-br from-emerald-500 via-green-800 to-teal-500",
+      image: getUrl(service?.image6?.imageId) || "/images/business.jfif"
+    },
+  ]
 
   return (
     <section
@@ -106,14 +147,13 @@ export function Services() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-[#0ea5e9] font-semibold uppercase tracking-wider text-md">
-            What We Offer
+            {service?.heading1?.text}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
-            Comprehensive Solutions for Your Business Growth
+            {service?.heading2?.text}
           </h2>
           <p className="text-muted-foreground text-lg">
-            From digital marketing to IT security, we provide end-to-end services designed
-            to help your business thrive in the digital age.
+            {service?.paragraph1?.text}
           </p>
         </div>
 
@@ -140,7 +180,7 @@ export function Services() {
 
                   ${isInView
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-100 translate-y-6"
                   }
                 `}
               >
@@ -154,7 +194,7 @@ export function Services() {
 
                 <CardContent className="p-5 md:p-6 relative z-10">
 
-                    <div className={`
+                  <div className={`
                       relative inline-flex items-center justify-center w-14 h-14
                       rounded-xl mb-5
                       ${service.color}
@@ -162,8 +202,8 @@ export function Services() {
                       group-hover:shadow-lg group-hover:shadow-sky-500/20
                       transition-all duration-300
                     `}>
-                  {/* Glow layer */}
-                   <div className={`
+                    {/* Glow layer */}
+                    <div className={`
                       absolute inset-0 rounded-xl opacity-0 group-hover:opacity-20
                       ${service.color} blur-xl transition-all duration-500
                     `}></div>

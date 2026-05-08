@@ -5,9 +5,12 @@ import { Bot, Cpu, BarChart3, ChevronRight } from "lucide-react"
 import { useEffect, useState } from "react"
 
 export function AutomationBanner() {
+  const [mounted, setMounted] = useState(false)
   const [dots, setDots] = useState<any[]>([])
 
   useEffect(() => {
+    setMounted(true)
+
     const generated = [...Array(10)].map(() => ({
       width: Math.random() * 8 + 4,
       height: Math.random() * 8 + 4,
@@ -16,8 +19,8 @@ export function AutomationBanner() {
       duration: 6 + Math.random() * 2,
     }))
 
-  setDots(generated)
-}, [])
+    setDots(generated)
+  }, [])
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-15 overflow-hidden text-white">
 
