@@ -1,8 +1,29 @@
 "use client"
 
+import { useContent } from "@/app/context/ContentContext";
 import { Phone, MapPin, Clock } from "lucide-react"
+import { useEffect } from "react";
 
 export function Contact() {
+  const slug = "home";
+  const { sectionsBySlug, loadSectionsBySlug, loading, media } = useContent();
+
+  useEffect(() => {
+    loadSectionsBySlug(slug);
+  }, [slug]);
+
+  const contact = sectionsBySlug[slug]?.["Contact"]?.blocks;
+  const getUrl = (imageId?: string) =>
+    media.find((m) => m.id === imageId)?.mediaUrl || null;
+
+   if (loading && !sectionsBySlug[slug]) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <section id="contact" className="py-20 bg-white relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -31,19 +52,19 @@ export function Contact() {
           {/* LEFT CONTENT */}
           <div className="text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              CONTACT US
+              {contact?.heading1?.text}
             </h2>
 
             <p className="text-gray-600 mb-6 max-w-md mx-auto lg:mx-0">
-              We are here to meet any business need and to promote your company online!
+              {contact?.paragraph1?.text}
             </p>
 
             <div className="w-16 h-[2px] bg-gray-400 mx-auto lg:mx-0 mb-6"></div>
 
             <div className="space-y-3 text-gray-700">
-              <p><span className="font-semibold">Phone:</span> +1 (416) 832-4050 </p>
-              <p><span className="font-semibold">Location:</span> Toronto, Ontario, Canada</p>
-              <p><span className="font-semibold">Email:</span> info@skymark-digital.com</p>
+              <p><span className="font-semibold">{contact?.heading2?.text}</span>{contact?.heading3?.text}</p>
+              <p><span className="font-semibold">{contact?.heading4?.text}</span>{contact?.heading5?.text}</p>
+              <p><span className="font-semibold">{contact?.heading6?.text}</span>{contact?.heading7?.text}</p>
             </div>
           </div>
 
@@ -51,7 +72,8 @@ export function Contact() {
           <div className="flex justify-center">
             <div className="w-[300px] h-[300px] md:w-[380px] md:h-[380px] rounded-full overflow-hidden shadow-xl">
               <img
-                src="/images/contact.jpg" // place your image in public folder
+                // src="/images/contact.jpg" // place your image in public folder
+                src={getUrl(contact?.image1?.imageId) || "/images/contact.jpg"}
                 alt="office"
                 className="w-full h-full object-cover"
               />
@@ -71,11 +93,11 @@ export function Contact() {
                     hover:-translate-y-2 hover:shadow-2xl h-35">
 
               <div className="flex items-center gap-2 mb-3 font-semibold">
-                <Phone size={18} /> CALL US
+                <Phone size={18} /> {contact?.heading8?.text}
               </div>
 
               <p className="text-sm text-white/90">
-                +1 (416) 832-4050<br />
+                {contact?.heading9?.text}<br />
               </p>
             </div>
           </div>
@@ -89,11 +111,11 @@ export function Contact() {
                     hover:-translate-y-2 hover:shadow-2xl h-35">
 
               <div className="flex items-center gap-2 mb-3 font-semibold">
-                <MapPin size={18} /> LOCATION
+                <MapPin size={18} /> {contact?.heading10?.text}
               </div>
 
               <p className="text-sm text-white/90">
-                TORONTO, ON, Canada
+                {contact?.heading11?.text}
               </p>
             </div>
           </div>
@@ -107,11 +129,11 @@ export function Contact() {
                     hover:-translate-y-2 hover:shadow-2xl h-35">
 
               <div className="flex items-center gap-2 mb-3 font-semibold">
-                <Clock size={18} /> HOURS
+                <Clock size={18} /> {contact?.heading12?.text}
               </div>
 
               <p className="text-sm text-white/90">
-                Mon – Fri: 9:00 am – 5:00 pm<br />
+                {contact?.heading13?.text}<br />
               </p>
             </div>
           </div>

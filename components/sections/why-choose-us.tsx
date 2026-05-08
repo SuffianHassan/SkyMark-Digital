@@ -33,41 +33,41 @@ export function WhyChooseUs() {
   const features = [
     {
       icon: Zap,
-      title: "Innovative Solutions",
-      description: "Cutting-edge technology and creative strategies that keep you ahead of the competition.",
+      title: why?.heading6.text,
+      description: why?.paragraph2?.text,
     },
     {
       icon: Target,
-      title: "Results-Driven Approach",
-      description: "Every strategy is designed with measurable outcomes and clear ROI in mind.",
+      title: why?.heading7.text,
+      description: why?.paragraph3?.text,
     },
     {
       icon: Clock,
-      title: "On-Time Delivery",
-      description: "We respect deadlines and deliver quality work within the agreed timeframe.",
+      title: why?.heading8.text,
+      description: why?.paragraph4?.text,
     },
     {
       icon: Headphones,
-      title: "24/7 Support",
-      description: "Round-the-clock assistance ensures your business never faces downtime.",
+      title: why?.heading9.text,
+      description: why?.paragraph5?.text,
     },
     {
       icon: TrendingUp,
-      title: "Scalable Growth",
-      description: "Solutions that grow with your business, adapting to your evolving needs.",
+      title: why?.heading10.text,
+      description: why?.paragraph6?.text,
     },
     {
       icon: Shield,
-      title: "Secure & Reliable",
-      description: "Enterprise-grade security measures to protect your data and operations.",
+      title: why?.heading11.text,
+      description: why?.paragraph7?.text,
     },
   ]
 
   const highlights = [
-    "Industry-leading expertise across multiple domains",
-    "Tailored solutions for your unique business needs",
-    "Transparent communication and project management",
-    "Competitive pricing without compromising quality",
+    why?.heading2.text,
+    why?.heading3.text,
+    why?.heading4?.text,
+    why?.heading5?.text,
   ]
 
   return (
@@ -98,17 +98,15 @@ export function WhyChooseUs() {
           {/* Left Content */}
           <div>
             <span className="text-[#0ea5e9] font-semibold uppercase tracking-wider text-md">
-
+              Why Choose Us
             </span>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
-              Your Trusted Partner for Digital Success
+              {why?.heading1.text}
             </h2>
 
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              With over 15 years of experience, Skymark Digital has helped hundreds of businesses
-              transform their digital presence and achieve remarkable growth. Our team of experts
-              combines technical excellence with creative innovation.
+              {why?.paragraph1?.text}
             </p>
 
             <ul className="space-y-4">

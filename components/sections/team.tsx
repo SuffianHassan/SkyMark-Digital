@@ -3,44 +3,67 @@
 import Image from "next/image"
 import { Linkedin, Twitter, Check } from "lucide-react"
 import Link from "next/link"
+import { useContent } from "@/app/context/ContentContext"
+import { useEffect } from "react"
 
-const team = [
+export function Team() {
+  const slug = "home";
+  const { sectionsBySlug, loadSectionsBySlug, loading, media } = useContent();
+
+  useEffect(() => {
+    loadSectionsBySlug(slug);
+  }, [slug]);
+
+  const about = sectionsBySlug[slug]?.["About"]?.blocks;
+  const members = sectionsBySlug[slug]?.["Team"]?.blocks;
+
+  const getUrl = (imageId?: string) =>
+    media.find((m) => m.id === imageId)?.mediaUrl || null;
+
+  const highlights = [
+    about?.heading3?.text,
+    about?.heading4?.text,
+    about?.heading5?.text,
+    about?.heading6?.text,
+    about?.heading7?.text,
+    about?.heading8?.text
+  ]
+
+  const team = [
   {
-    name: "Emad H.Qazi",
-    role: "CEO & Founder",
-    image: "/images/emad.jpeg",
+    name: members?.heading3?.text,
+    role: members?.heading4?.text,
+    image: getUrl(members?.image1?.imageId) || "/images/emad.jpeg",
     linkedin: "https://www.linkedin.com/in/emad-qazi-0632a450/",
   },
   {
-    name: "Aavish Rabbani",
-    role: "VP - Creative Head",
-    image: "/images/aavish.jpeg",
-    linkedin: "https://www.linkedin.com/in/aavish-rabbani-139b8a17",
+    name: members?.heading5?.text,
+    role: members?.heading6?.text,
+    image: getUrl(members?.image2?.imageId) || "/images/aavish.jpeg",
+    linkedin: "https://www.linkedin.com/in/aavish-rabbani-139b8a17/",
   },
   {
-    name: "Syed Saad Shah",
-    role: "Head of Design & Tech",
-    image: "/images/saad.jpeg",
+    name: members?.heading7?.text,
+    role: members?.heading8?.text,
+    image: getUrl(members?.image3?.imageId) || "/images/saad.jpeg",
     linkedin: "https://www.linkedin.com/in/syed-saad-276714114",
   },
   {
-    name: "Suleman Bhatti",
-    role: "Marketing Head",
-    image: "/images/suleman.jpeg",
+    name: members?.heading9?.text,
+    role: members?.heading10?.text,
+    image: getUrl(members?.image4?.imageId) || "/images/suleman.jpeg",
     linkedin: "https://linkedin.com/",
   },
 ]
 
-const highlights = [
-  "15+ years of industry experience",
-  "Agile development methodology",
-  "Post-launch support & maintenance",
-  "Certified cloud & security professionals",
-  "Transparent communication & reporting",
-  "100% client data confidentiality",
-]
+  if (loading && !sectionsBySlug[slug]) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
+  }
 
-export function Team() {
   return (
     <section id="about" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -53,7 +76,8 @@ export function Team() {
             <div className="absolute inset-0 flex items-center justify-center z-10">
               <div className="relative w-[80%] h-[70%] rounded-2xl overflow-hidden hover:scale-[1.02] transition duration-500 shadow-[0_0_80px_rgba(21,157,241,0.35)]">
                 <Image
-                  src="/images/team.webp"
+                  // src="/images/team.webp"
+                  src={getUrl(about?.image1?.imageId) || "/images/marketing.jpg"}
                   alt="Main"
                   fill
                   className="object-cover"
@@ -68,18 +92,18 @@ export function Team() {
 
             {/* Left Middle Card */}
             <div className="hidden sm:block absolute top-2/3 -left-6 -translate-y-1/2 w-40 h-28 rounded-xl overflow-hidden shadow-lg hover:shadow-[0_10px_40px_rgba(0,0,0,0.25)] hover:-translate-x-2 transition duration-300 z-20">
-              <Image src="/images/communication.jpg" alt="" fill className="object-cover" />
+              <Image src={getUrl(about?.image2?.imageId) || "/images/communication.jpg"} alt="About Image" fill className="object-cover" />
             </div>
 
 
             {/* Top Right Card */}
             <div className="hidden sm:block absolute top-4 right-1 w-44 h-28 rounded-xl overflow-hidden shadow-lg hover:shadow-[0_10px_40px_rgba(0,0,0,0.25)] hover:-translate-y-2 transition duration-300 z-20">
-              <Image src="/images/experience.jpg" alt="" fill className="object-cover" />
+              <Image src={getUrl(about?.image3?.imageId) || "/images/experience.jpg"} alt="About Image" fill className="object-cover" />
             </div>
 
             {/* Bottom Right Card */}
             <div className="hidden sm:block absolute bottom-3 right-1 w-44 h-28 rounded-xl overflow-hidden shadow-lg hover:shadow-[0_10px_40px_rgba(0,0,0,0.25)] hover:translate-y-2 transition duration-300 z-20">
-              <Image src="/images/data.jpg" alt="" fill className="object-cover" />
+              <Image src={getUrl(about?.image4?.imageId) || "/images/data.jpg"} alt="About Image" fill className="object-cover" />
             </div>
 
           </div>
@@ -87,22 +111,19 @@ export function Team() {
           {/* Content */}
           <div>
             <span className="text-primary font-semibold uppercase tracking-wider text-md">
-              About Us
+              {about?.heading1?.text}
             </span>
 
             <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
-              Empowering Businesses Through Technology
+              {about?.heading2?.text}
             </h2>
 
             <p className="text-muted-foreground mb-6">
-              Skymark Digital is a full-service IT solutions and digital marketing agency
-              dedicated to helping businesses thrive in the digital landscape. We partner
-              with startups, SMEs, and enterprises globally.
+              {about?.paragraph1?.text}
             </p>
 
             <p className="text-muted-foreground mb-8">
-              Our mission is to bridge the gap between technology and business success
-              through long-term partnerships.
+              {about?.paragraph2?.text}
             </p>
 
 
@@ -125,13 +146,13 @@ export function Team() {
         {/* Bottom: Team */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="text-primary font-semibold uppercase tracking-wider text-md">
-            Meet Our Team
+            {members?.heading1?.text}
           </span>
           <h3 className="text-3xl md:text-4xl font-bold mt-4 mb-4">
-            The Experts Behind Your Success
+            {members?.heading2?.text}
           </h3>
           <p className="text-muted-foreground">
-            A passionate team delivering innovation, strategy, and execution.
+            {members?.paragraph1?.text}
           </p>
         </div>
 
@@ -146,7 +167,7 @@ export function Team() {
                   {/* Image */}
                   <Image
                     src={member.image}
-                    alt={member.name}
+                    alt="Member Image"
                     fill
                     className="object-cover transition duration-500 group-hover:scale-110 group-hover:brightness-110"
                   />

@@ -4,6 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Calendar, User } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import { useContent } from "@/app/context/ContentContext"
+import { useEffect } from "react"
 
 const posts = [
   {
@@ -36,20 +38,36 @@ const posts = [
 ]
 
 export function Blog() {
+  const slug = "home";
+  const { sectionsBySlug, loadSectionsBySlug, loading, media } = useContent();
+
+   useEffect(() => {
+      loadSectionsBySlug(slug);
+    }, [slug]);
+  
+    const blog = sectionsBySlug[slug]?.["Blog"]?.blocks;
+
+     if (loading && !sectionsBySlug[slug]) {
+      return (
+        <div className="flex items-center justify-center h-screen w-full">
+          <p className="text-xl font-bold">Loading...</p>
+        </div>
+      );
+    }
+
   return (
     <section id="blog" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-primary font-semibold uppercase tracking-wider text-md">
-            Our Blog
+            {blog?.heading1?.text}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6 text-balance">
-            Latest Insights & Updates
+            {blog?.heading2?.text}
           </h2>
           <p className="text-muted-foreground text-lg">
-            Stay informed with our latest articles on technology, digital marketing, 
-            and business growth strategies.
+            {blog?.paragraph1?.text}
           </p>
         </div>
 

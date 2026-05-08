@@ -3,13 +3,34 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Phone, Sparkles } from "lucide-react"
+import { useEffect } from "react";
+import { useContent } from "@/app/context/ContentContext";
 
 export function CTA() {
+  const slug = "home";
+  const { sectionsBySlug, loadSectionsBySlug, loading, media } = useContent();
+
+  useEffect(() => {
+    loadSectionsBySlug(slug);
+  }, [slug]);
+
+  const cta = sectionsBySlug[slug]?.["Call To Action"]?.blocks;
+  const getUrl = (imageId?: string) =>
+    media.find((m) => m.id === imageId)?.mediaUrl || null;
+
+   if (loading && !sectionsBySlug[slug]) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <section className="py-20 gradient-hero relative overflow-hidden">
       {/* Mesh overlay */}
       <div className="absolute inset-0 mesh-overlay" />
-      
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-10 right-[10%] w-64 h-64 bg-amber-400/20 animate-morph animate-float blur-2xl" />
@@ -22,7 +43,7 @@ export function CTA() {
       </div>
 
       {/* Grid Pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
@@ -34,17 +55,16 @@ export function CTA() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
             <Sparkles className="w-4 h-4 text-amber-400" />
-            Start Your Journey Today
+              {cta?.heading1?.text}
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance">
-            Ready to Transform Your Business?
+            {cta?.heading2?.text}
           </h2>
           <p className="text-white/80 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-            Partner with Skymark Digital and unlock your business&apos;s full potential. 
-            Let&apos;s create something extraordinary together.
+            {cta?.paragraph1?.text}
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               asChild

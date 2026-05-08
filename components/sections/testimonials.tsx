@@ -4,30 +4,8 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-const testimonials = [
-  {
-    name: "Wasi Uddin",
-    role: "Real Estate Agent",
-    image: "/images/testimonials/wasi.jpg",
-    content: "I’m Wasiuddin and I’ve been in real estate in Canada for over 14 years. I’ve been working with Skymark Digital for the past 2 years and I’m very happy with their services. They’re professional, responsive, and really understand digital marketing for real estate. I’ve seen great improvement in my online presence. Highly recommend to anyone who wants to take his or her business to the next level.",
-    rating: 5,
-  },
-  {
-    name: "Team Malik",
-    role: "Real Estate Agent",
-    image: "/images/testimonials/malik.jpg",
-    content: "I am Malik Ashfaque, Realtor with Re/Max from the last 23 years! I will Highly Recommend Skymark Digital to anyone who want to Boost their Business to the Next Level. They are Team of Dedicated Professionals and always provide Excellent Services.",
-    rating: 5,
-  },
-  {
-    name: "Rafay Shahdin Real Estate",
-    role: "Real Agent",
-    image: "/images/testimonials/rafay.jpg",
-    content: "I had an excellent experience with this marketing company. They always donate best for clients.",
-    rating: 4,
-  },
-]
+import { useContent } from "@/app/context/ContentContext"
+import test from "node:test"
 
 export function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -48,12 +26,56 @@ export function Testimonials() {
     return () => clearInterval(interval)
   }, [])
 
+  const slug = "home";
+  const { sectionsBySlug, loadSectionsBySlug, loading, media } = useContent();
+
+  useEffect(() => {
+    loadSectionsBySlug(slug);
+  }, [slug]);
+
+  const testimonis = sectionsBySlug[slug]?.["Testimonial"]?.blocks;
+  const getUrl = (imageId?: string) =>
+    media.find((m) => m.id === imageId)?.mediaUrl || null;
+
+  const testimonials = [
+  {
+    name: testimonis?.heading3?.text,
+    role: testimonis?.heading4?.text,
+    image: getUrl(testimonis?.image1?.imageId) || "/images/testimonials/wasi.jpg",
+    content: testimonis?.paragraph2?.text,
+    rating: 5,
+  },
+  {
+    name: testimonis?.heading5?.text,
+    role: testimonis?.heading6?.text,
+    image: getUrl(testimonis?.image2?.imageId) || "/images/testimonials/malik.jpg",
+    content: testimonis?.paragraph3?.text,
+    rating: 5,
+  },
+  {
+    name: testimonis?.heading7?.text,
+    role: testimonis?.heading8?.text,
+    image: getUrl(testimonis?.image3?.imageId) || "/images/testimonials/rafay.jpg",
+    content: testimonis?.paragraph4?.text,
+    rating: 4,
+  },
+]
+
+   if (loading && !sectionsBySlug[slug]) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <section id="testimonials" className="relative py-20 overflow-hidden">
       {/* Gradient Overlay */}
       <div className="absolute inset-0">
         <Image
-          src="/images/testimonis.jpg" // 👈 add your image here
+          // src="/images/testimonis.jpg" // 👈 add your image here
+          src={getUrl(testimonis?.image4?.imageId) || "/images/testimonis.jpg"}
           alt="background"
           fill
           className="object-cover"
@@ -65,14 +87,13 @@ export function Testimonials() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-primary font-semibold uppercase tracking-wider text-md">
-            Testimonials
+            {testimonis?.heading1?.text}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-3 text-balance">
-            What Our Clients Say
+            {testimonis?.heading2?.text}
           </h2>
           <p className="text-foreground text-lg">
-            Dont just take our word for it. Here's what our clients have to say about
-            working with Skymark Digital.
+            {testimonis?.paragraph1?.text}
           </p>
         </div>
 
@@ -90,7 +111,7 @@ export function Testimonials() {
                 <div className="relative w-16 h-16 rounded-full overflow-hidden bg-primary/50">
                   <Image
                     src={testimonials[currentIndex].image}
-                    alt={testimonials[currentIndex].name}
+                    alt="Reviewer Image"
                     fill
                     className="object-cover"
                   />
