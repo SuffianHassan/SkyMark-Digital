@@ -4,11 +4,11 @@ import Image from "next/image"
 import { CheckCircle } from "lucide-react"
 
 interface ServiceSectionProps {
-  title: string
-  description: string
-  image: string
+  title?: string
+  description?: string
+  image?: string
   thumbnail?: string
-  features: string[]
+  features?: string[]
   reversed?: boolean
 }
 

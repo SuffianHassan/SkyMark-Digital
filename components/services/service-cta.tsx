@@ -7,11 +7,13 @@ import { ArrowRight, Phone, Sparkles } from "lucide-react"
 interface ServiceCTAProps {
   title?: string
   description?: string
+  label?: string
 }
 
-export function ServiceCTA({ 
-  title = "Ready to Get Started?", 
-  description = "Contact us today to discuss how our services can help transform your business." 
+export function ServiceCTA({
+  title = "Ready to Get Started?",
+  description = "Contact us today to discuss how our services can help transform your business.",
+  label = "Free Consultation"
 }: ServiceCTAProps) {
   return (
     <section className=" bg-white">
@@ -19,28 +21,28 @@ export function ServiceCTA({
         <div className="gradient-hero p-10 md:p-16 text-center relative overflow-hidden">
           {/* Mesh overlay */}
           <div className="absolute inset-0 mesh-overlay rounded-3xl" />
-          
+
           {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden rounded-3xl">
             <div className="absolute top-5 right-[10%] w-40 h-40 bg-amber-400/20 animate-morph animate-float blur-2xl" />
             <div className="absolute bottom-5 left-[5%] w-48 h-48 bg-white/10 animate-morph animate-float-delayed blur-2xl" />
           </div>
-          
+
           {/* Grid Pattern */}
-          <div 
+          <div
             className="absolute inset-0 opacity-[0.04] rounded-3xl"
             style={{
               backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
               backgroundSize: "30px 30px"
             }}
           />
-          
+
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
               <Sparkles className="w-4 h-4 text-amber-400" />
-              Free Consultation
+              {label}
             </div>
-            
+
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
               {title}
             </h2>

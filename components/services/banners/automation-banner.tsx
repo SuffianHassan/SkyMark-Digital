@@ -3,10 +3,17 @@
 import Link from "next/link"
 import { Bot, Cpu, BarChart3, ChevronRight } from "lucide-react"
 import { useEffect, useState } from "react"
+import { useContent } from "@/app/context/ContentContext"
 
 export function AutomationBanner() {
   const [mounted, setMounted] = useState(false)
   const [dots, setDots] = useState<any[]>([])
+  const slug = "automation";
+  const { sectionsBySlug, loadSectionsBySlug, loading, media } = useContent();
+
+  useEffect(() => {
+    loadSectionsBySlug(slug);
+  }, [slug]);
 
   useEffect(() => {
     setMounted(true)
@@ -21,13 +28,27 @@ export function AutomationBanner() {
 
     setDots(generated)
   }, [])
+
+  const content = sectionsBySlug[slug]?.["Banner"]?.blocks;
+  const getUrl = (imageId?: string) =>
+    media.find((m) => m.id === imageId)?.mediaUrl || null;
+
+  if (loading && !sectionsBySlug[slug]) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-15 overflow-hidden text-white">
 
       {/* BACKGROUND IMAGE */}
       <div className="absolute inset-0">
         <img
-          src="/images/banners/automation-banner1.png" // <-- put your image here
+          // src="/images/banners/automation-banner1.png" // <-- put your image here
+          src={getUrl(content?.image1?.imageId) || "/images/banners/automation-banner1.png"}
           alt="AI Automation"
           className="w-full h-full object-cover object-center animate-[zoomSlow_20s_ease-in-out_infinite_alternate]"
         />
@@ -68,13 +89,12 @@ export function AutomationBanner() {
         <div className="max-w-2xl">
 
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Intelligent Automation<br />
-            <span className="text-[#0ea5e9]">Smarter Business</span>
+            {content?.heading1?.text}<br />
+            <span className="text-[#0ea5e9]">{content?.heading2?.text}</span>
           </h1>
 
           <p className="text-lg md:text-xl text-white/80 mb-10">
-            Harness the power of AI to streamline operations, reduce costs,
-            and unlock new opportunities for growth and innovation.
+            {content?.paragraph1?.text}
           </p>
 
           {/* ICON FEATURES */}
@@ -85,7 +105,7 @@ export function AutomationBanner() {
                               group-hover:scale-110 transition">
                 <Bot className="w-6 h-6 text-[#0ea5e9]" />
               </div>
-              <span className="text-sm">AI-Powered</span>
+              <span className="text-sm">{content?.heading3?.text}</span>
             </div>
 
             <div className="flex items-center gap-3 group">
@@ -93,7 +113,7 @@ export function AutomationBanner() {
                               group-hover:scale-110 transition">
                 <Cpu className="w-6 h-6 text-[#0ea5e9]" />
               </div>
-              <span className="text-sm">Smart Automation</span>
+              <span className="text-sm">{content?.heading4?.text}</span>
             </div>
 
             <div className="flex items-center gap-3 group">
@@ -101,7 +121,7 @@ export function AutomationBanner() {
                               group-hover:scale-110 transition">
                 <BarChart3 className="w-6 h-6 text-[#0ea5e9]" />
               </div>
-              <span className="text-sm">Data-Driven</span>
+              <span className="text-sm">{content?.heading5?.text}</span>
             </div>
 
           </div>

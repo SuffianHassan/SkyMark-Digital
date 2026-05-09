@@ -1,10 +1,31 @@
 "use client"
 
+import { useContent } from "@/app/context/ContentContext";
 import { ChevronRight, Megaphone, TrendingUp, Users } from "lucide-react"
 import Link from "next/link"
+import { useEffect } from "react";
 
 
 export function CreativeMarketingBanner() {
+  const slug = "creative";
+  const { sectionsBySlug, loadSectionsBySlug, loading, media } = useContent();
+
+  useEffect(() => {
+    loadSectionsBySlug(slug);
+  }, [slug]);
+
+  const content = sectionsBySlug[slug]?.["Banner"]?.blocks;
+  const getUrl = (imageId?: string) =>
+    media.find((m) => m.id === imageId)?.mediaUrl || null;
+
+  if (loading && !sectionsBySlug[slug]) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <section className="relative overflow-hidden bg-[#2bccfa]">
       {/* <div className="relative overflow-hidden rounded-2xl p-6 md:p-2"> */}
@@ -24,7 +45,8 @@ export function CreativeMarketingBanner() {
       {/* CENTER BACKGROUND IMAGE */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <img
-          src="/images/banners/creative.png"
+          // src="/images/banners/creative.png"
+          src={getUrl(content?.image1?.imageId) || "/images/banners/creative.png"}
           alt="Creative background"
           className="w-[600px] md:w-[750px] lg:w-[1000px] opacity-10 object-contain"
         />
@@ -44,13 +66,12 @@ export function CreativeMarketingBanner() {
           </nav>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Craft Stunning Visuals with<br />
-            <span className="text-yellow-400">Creative Services</span>
+            {content?.heading1?.text}<br />
+            <span className="text-yellow-400">{content?.heading2?.text}</span>
           </h1>
 
           <p className="text-white text-lg mb-10 max-w-xl">
-            Elevate your brand with eye-catching designs, engaging content, and
-            creative strategies that leave a lasting impression.
+            {content?.paragraph1?.text}
           </p>
 
           {/* FEATURES */}
@@ -60,21 +81,21 @@ export function CreativeMarketingBanner() {
               <div className="p-3 rounded-xl bg-yellow-400/10 group-hover:bg-yellow-400/20 transition">
                 <Megaphone className="w-5 h-5 text-yellow-500" />
               </div>
-              <span className="text-sm text-gray-700">Brand Identity Design</span>
+              <span className="text-sm text-gray-700">{content?.heading3?.text}</span>
             </div>
 
             <div className="flex items-center gap-3 group">
               <div className="p-3 rounded-xl bg-yellow-400/10 group-hover:bg-yellow-400/20 transition">
                 <TrendingUp className="w-5 h-5 text-yellow-500" />
               </div>
-              <span className="text-sm text-gray-700">Creative Campaigns</span>
+              <span className="text-sm text-gray-700">{content?.heading4?.text}</span>
             </div>
 
             <div className="flex items-center gap-3 group">
               <div className="p-3 rounded-xl bg-yellow-400/10 group-hover:bg-yellow-400/20 transition">
                 <Users className="w-5 h-5 text-yellow-500" />
               </div>
-              <span className="text-sm text-gray-700">Visual Storytelling</span>
+              <span className="text-sm text-gray-700">{content?.heading5?.text}</span>
             </div>
           </div>
         </div>
@@ -88,7 +109,8 @@ export function CreativeMarketingBanner() {
           {/* INNER IMAGE */}
           <div className="relative w-[330px] h-[330px] rounded-full overflow-hidden left-6 -top-6 border-8 border-white shadow-xl">
             <img
-              src="/images/banners/creative.webp"
+              // src="/images/banners/creative.webp"
+              src={getUrl(content?.image2?.imageId) || "/images/banners/creative.webp"}
               alt="Marketing"
               className="w-full h-full object-cover animate-[zoomSlow_25s_ease-in-out_infinite_alternate]"
             />

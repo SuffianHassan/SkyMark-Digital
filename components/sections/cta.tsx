@@ -18,7 +18,7 @@ export function CTA() {
   const getUrl = (imageId?: string) =>
     media.find((m) => m.id === imageId)?.mediaUrl || null;
 
-   if (loading && !sectionsBySlug[slug]) {
+  if (loading && !sectionsBySlug[slug]) {
     return (
       <div className="flex items-center justify-center h-screen w-full">
         <p className="text-xl font-bold">Loading...</p>
@@ -55,7 +55,7 @@ export function CTA() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
             <Sparkles className="w-4 h-4 text-amber-400" />
-              {cta?.heading1?.text}
+            {cta?.heading1?.text}
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-balance">

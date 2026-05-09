@@ -2,8 +2,29 @@
 
 import Link from "next/link"
 import { Megaphone, TrendingUp, Users, ChevronRight } from "lucide-react"
+import { useContent } from "@/app/context/ContentContext";
+import { useEffect } from "react";
 
 export function DigitalMarketingBanner() {
+  const slug = "digital-marketing";
+  const { sectionsBySlug, loadSectionsBySlug, loading, media } = useContent();
+
+  useEffect(() => {
+    loadSectionsBySlug(slug);
+  }, [slug]);
+
+  const content = sectionsBySlug[slug]?.["Banner"]?.blocks;
+  const getUrl = (imageId?: string) =>
+    media.find((m) => m.id === imageId)?.mediaUrl || null;
+
+  if (loading && !sectionsBySlug[slug]) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <section className="relative overflow-hidden bg-white">
 
@@ -73,7 +94,8 @@ export function DigitalMarketingBanner() {
           {/* BACKGROUND IMAGE */}
           <div className="absolute inset-0 -z-10">
             <img
-              src="/images/banners/digital marketing.jfif"
+              // src="/images/banners/digital marketing.jfif"
+              src={getUrl(content?.image1?.imageId) || "/images/banners/digital marketing.jfif"}
               alt="Marketing background"
               className="w-full h-full object-cover object-center opacity-10"
             />
@@ -90,14 +112,13 @@ export function DigitalMarketingBanner() {
 
           {/* HEADING */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Grow Your Brand with <br />
-            <span className="text-[#f59e0b]">Digital Marketing</span>
+            {content?.heading1?.text}<br />
+            <span className="text-[#f59e0b]">{content?.heading2?.text}</span>
           </h1>
 
           {/* DESCRIPTION */}
           <p className="text-gray-600 text-lg mb-10 max-w-xl">
-            Drive traffic, generate leads, and boost conversions with
-            data-driven marketing strategies tailored for your business.
+            {content?.paragraph1?.text}
           </p>
 
           {/* FEATURES */}
@@ -107,21 +128,21 @@ export function DigitalMarketingBanner() {
               <div className="p-3 rounded-xl bg-[#f59e0b]/10 group-hover:bg-[#f59e0b]/20 transition">
                 <Megaphone className="w-5 h-5 text-[#f59e0b]" />
               </div>
-              <span className="text-sm text-gray-700">Campaign Strategy</span>
+              <span className="text-sm text-gray-700">{content?.heading3?.text}</span>
             </div>
 
             <div className="flex items-center gap-3 group">
               <div className="p-3 rounded-xl bg-[#f59e0b]/10 group-hover:bg-[#f59e0b]/20 transition">
                 <TrendingUp className="w-5 h-5 text-[#f59e0b]" />
               </div>
-              <span className="text-sm text-gray-700">Growth Marketing</span>
+              <span className="text-sm text-gray-700">{content?.heading4?.text}</span>
             </div>
 
             <div className="flex items-center gap-3 group">
               <div className="p-3 rounded-xl bg-[#f59e0b]/10 group-hover:bg-[#f59e0b]/20 transition">
                 <Users className="w-5 h-5 text-[#f59e0b]" />
               </div>
-              <span className="text-sm text-gray-700">Audience Targeting</span>
+              <span className="text-sm text-gray-700">{content?.heading5?.text}</span>
             </div>
 
           </div>
@@ -132,7 +153,8 @@ export function DigitalMarketingBanner() {
 
           <div className="relative w-[260px] sm:w-[320px] md:w-[380px] lg:w-[420px] aspect-square rounded-full overflow-hidden border-8 border-white shadow-2xl">
             <img
-              src="/images/banners/marketing-person.jpg"
+              // src="/images/banners/marketing-person.jpg"
+              src={(content?.image2?.imageId) || "/images/banners/marketing-person.jpg"}
               alt="Marketing"
               className="w-full h-full object-cover animate-[zoomSlow_18s_ease-in-out_infinite_alternate]"
             />
