@@ -16,7 +16,8 @@ export default function Layout({ children }: {children: ReactNode}) {
     { name: "Dashboard", href: "/dashboard" },
     { name: "Pages", href: "/content/pages" },
     { name: "Media", href: "/content/media" },
-    { name: "Add Content", href: "/content/add-content" },
+    // { name: "Add Content", href: "/content/add-content" },
+    { name: "Blogs", href: "/content/blogs" },
   ];
 
 

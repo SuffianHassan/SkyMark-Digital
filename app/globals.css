@@ -806,3 +806,107 @@
   will-change: transform;
 }
 
+/* Quills Styling */
+
+
+/* .blog-content {
+  width: 100%;
+  word-wrap: break-word;
+  line-height: 1.9;
+  font-size: 17px;
+  color: #374151;
+  white-space: normal;
+
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+
+} */
+
+.blog-content {
+  width: 100%;
+  line-height: 1.9;
+  font-size: 17px;
+  color: #374151;
+}
+
+/* reset everything inside quill output */
+.blog-content * {
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* paragraphs specifically */
+.blog-content p {
+  margin-bottom: 20px;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  margin-top: 28px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #111827;
+}
+
+.blog-content h1 {
+  font-size: 40px;
+}
+
+.blog-content h2 {
+  font-size: 32px;
+}
+
+.blog-content h3 {
+  font-size: 26px;
+}
+
+.blog-content ul,
+.blog-content ol {
+  padding-left: 24px;
+  margin-bottom: 20px;
+}
+
+.blog-content li {
+  margin-bottom: 10px;
+}
+
+.blog-content strong {
+  font-weight: 700;
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 24px 0;
+}
+
+.blog-content blockquote {
+  border-left: 4px solid #d1d5db;
+  padding-left: 16px;
+  margin: 24px 0;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.blog-content a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.blog-content pre {
+  overflow-x: auto;
+  background: #111827;
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.blog-content code {
+  white-space: pre-wrap;
+}

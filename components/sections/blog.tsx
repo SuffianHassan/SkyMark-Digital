@@ -1,59 +1,51 @@
-"use client"
+"use client";
 
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Calendar, User } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { useContent } from "@/app/context/ContentContext"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { fetchBlogs } from "../services/BlogService"
 
-const posts = [
-  {
-    title: "The Future of AI in Digital Marketing",
-    excerpt: "Discover how artificial intelligence is revolutionizing the way businesses connect with their customers.",
-    image: "/images/blog/ai-marketing.jpg",
-    author: "Michael Chen",
-    date: "March 15, 2026",
-    category: "AI & Technology",
-    slug: "future-of-ai-in-marketing"
-  },
-  {
-    title: "10 SEO Strategies for 2026",
-    excerpt: "Stay ahead of the competition with these proven search engine optimization techniques.",
-    image: "/images/blog/seo-strategies.jpg",
-    author: "Sarah Johnson",
-    date: "March 12, 2026",
-    category: "Digital Marketing",
-    slug: "seo-strategies-2026",
-  },
-  {
-    title: "Building Secure Web Applications",
-    excerpt: "Essential security practices every developer should implement in their web projects.",
-    image: "/images/blog/web-security.jpg",
-    author: "David Williams",
-    date: "March 10, 2026",
-    category: "Web Development",
-    slug: "building-secure-web-applications"
-  },
-]
+function getPreview(text: string, words = 20) {
+  const cleaned = text
+    .replace(/<[^>]+>/g, "")     // remove HTML tags
+    .replace(/&nbsp;/g, " ")     // fix non-breaking spaces
+    .replace(/\u00A0/g, " ");    // extra safety
+
+  return cleaned.split(" ").slice(0, words).join(" ") + "...";
+}
 
 export function Blog() {
+  const [posts, setPosts] = useState<any[]>([]);
   const slug = "home";
   const { sectionsBySlug, loadSectionsBySlug, loading, media } = useContent();
 
-   useEffect(() => {
-      loadSectionsBySlug(slug);
-    }, [slug]);
-  
-    const blog = sectionsBySlug[slug]?.["Blog"]?.blocks;
+  useEffect(() => {
+    loadSectionsBySlug(slug);
+  }, [slug]);
 
-     if (loading && !sectionsBySlug[slug]) {
-      return (
-        <div className="flex items-center justify-center h-screen w-full">
-          <p className="text-xl font-bold">Loading...</p>
-        </div>
-      );
-    }
+  useEffect(() => {
+    const loadBlogs = async () => {
+      const blogs = await fetchBlogs();
+
+      // only latest 3
+      setPosts(blogs.slice(0, 3));
+    };
+
+    loadBlogs();
+  }, []);
+
+  const blog = sectionsBySlug[slug]?.["Blog"]?.blocks;
+
+  if (loading && !sectionsBySlug[slug]) {
+    return (
+      <div className="flex items-center justify-center h-screen w-full">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <section id="blog" className="py-20 bg-white">
@@ -77,7 +69,7 @@ export function Blog() {
             <Card key={index} className="group overflow-hidden bg-white border-border hover:shadow-xl transition-all duration-300">
               <div className="relative h-48 overflow-hidden bg-secondary">
                 <Image
-                  src={post.image}
+                  src={(post.imageUrl || "/images/blog/ai-marketing.jpg")}
                   alt={post.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -96,14 +88,18 @@ export function Blog() {
                   </span>
                   <span className="flex items-center gap-1">
                     <Calendar className="h-4 w-4" />
-                    {post.date}
+                    {post.createdAt?.seconds
+                      ? new Date(
+                        post.createdAt.seconds * 1000
+                      ).toLocaleDateString()
+                      : ""}
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
                   {post.title}
                 </h3>
                 <p className="text-muted-foreground mb-4 line-clamp-2">
-                  {post.excerpt}
+                  {getPreview(post.content, 20)}
                 </p>
                 <Link
                   href={`/blog/${post.slug}`}

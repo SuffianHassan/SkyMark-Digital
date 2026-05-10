@@ -63,9 +63,7 @@ const Media = () => {
 
 
     try {
-      const res = await fetch("https://steak.dhsdigitals.com/media/upload.php", {
-
-
+      const res = await fetch("https://skymark-digital.com/media/upload.php", {
         method: "POST",
         body: formData
       });
@@ -117,7 +115,7 @@ const Media = () => {
   const handleDelete = async (id: string, url: string) => {
     try {
       const filename = url.split("/").pop(); // get file name from URL
-      await fetch(`https://steak.dhsdigitals.com/media/delete.php?file=${filename}`, { method: "POST" });
+      await fetch(`https://skymark-digital.com/media/delete.php?file=${filename}`, { method: "POST" });
 
 
       await deleteDoc(doc(db, "media", id));

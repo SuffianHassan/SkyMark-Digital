@@ -77,7 +77,7 @@ export function Team() {
               <div className="relative w-[80%] h-[70%] rounded-2xl overflow-hidden hover:scale-[1.02] transition duration-500 shadow-[0_0_80px_rgba(21,157,241,0.35)]">
                 <Image
                   // src="/images/team.webp"
-                  src={getUrl(about?.image1?.imageId) || "/images/marketing.jpg"}
+                  src={getUrl(about?.image1?.imageId) || "/images/marketing.png"}
                   alt="Main"
                   fill
                   className="object-cover"
@@ -92,7 +92,7 @@ export function Team() {
 
             {/* Left Middle Card */}
             <div className="hidden sm:block absolute top-2/3 -left-6 -translate-y-1/2 w-40 h-28 rounded-xl overflow-hidden shadow-lg hover:shadow-[0_10px_40px_rgba(0,0,0,0.25)] hover:-translate-x-2 transition duration-300 z-20">
-              <Image src={getUrl(about?.image2?.imageId) || "/images/communication.jpg"} alt="About Image" fill className="object-cover" />
+              <Image src={getUrl(about?.image2?.imageId) || "/images/communication.webp"} alt="About Image" fill className="object-cover" />
             </div>
 
 
@@ -103,7 +103,7 @@ export function Team() {
 
             {/* Bottom Right Card */}
             <div className="hidden sm:block absolute bottom-3 right-1 w-44 h-28 rounded-xl overflow-hidden shadow-lg hover:shadow-[0_10px_40px_rgba(0,0,0,0.25)] hover:translate-y-2 transition duration-300 z-20">
-              <Image src={getUrl(about?.image4?.imageId) || "/images/data.jpg"} alt="About Image" fill className="object-cover" />
+              <Image src={getUrl(about?.image4?.imageId) || "/images/data.png"} alt="About Image" fill className="object-cover" />
             </div>
 
           </div>
