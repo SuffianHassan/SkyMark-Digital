@@ -31,7 +31,7 @@ export function BusinessServicesBanner() {
       <div className="absolute inset-0">
         <img
           // src="/images/banners/business.jpg" // <-- your image
-          src={(content?.image1?.imageId) || "/images/banners/business.jpg"}
+          src={(content?.image2?.imageId) || "/images/banners/business.jpg"}
           alt="Business Services"
           className="w-full h-full object-cover animate-[zoomSlow_30s_ease-in-out_infinite_alternate]"
         />

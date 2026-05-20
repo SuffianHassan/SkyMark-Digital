@@ -8,6 +8,7 @@ import {
   query,
   serverTimestamp,
   updateDoc,
+  where,
 } from "firebase/firestore";
 
 import { db } from "./firebase.config";
@@ -59,12 +60,29 @@ export const fetchBlogs = async (): Promise<Blog[]> => {
 /**
  * Get Blog By Slug
  */
+// export const getBlogBySlug = async (slug: string) => {
+//   const blogs = await fetchBlogs();
+
+//   return blogs.find((b) => b.slug === slug);
+// };
 export const getBlogBySlug = async (slug: string) => {
-  const blogs = await fetchBlogs();
 
-  return blogs.find((b) => b.slug === slug);
+  const q = query(
+    collection(db, "blogs"),
+    where("slug", "==", slug)
+  );
+
+  const querySnapshot = await getDocs(q);
+
+  if (querySnapshot.empty) {
+    return null;
+  }
+
+  return {
+    id: querySnapshot.docs[0].id,
+    ...querySnapshot.docs[0].data(),
+  };
 };
-
 /**
  * Update Blog
  */

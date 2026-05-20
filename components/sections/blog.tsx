@@ -102,7 +102,7 @@ export function Blog() {
                   {getPreview(post.content, 20)}
                 </p>
                 <Link
-                  href={`/blog/${post.slug}`}
+                  href={`/blog?slug=${post.slug}`}
                   className="inline-flex items-center text-primary font-medium hover:gap-2 transition-all"
                 >
                   Read More

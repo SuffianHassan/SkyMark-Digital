@@ -154,7 +154,7 @@ export function DigitalMarketingBanner() {
           <div className="relative w-[260px] sm:w-[320px] md:w-[380px] lg:w-[420px] aspect-square rounded-full overflow-hidden border-8 border-white shadow-2xl">
             <img
               // src="/images/banners/marketing-person.jpg"
-              src={(content?.image2?.imageId) || "/images/banners/marketing-person.jpg"}
+              src={(content?.image3?.imageId) || "/images/banners/marketing-person.jpg"}
               alt="Marketing"
               className="w-full h-full object-cover animate-[zoomSlow_18s_ease-in-out_infinite_alternate]"
             />

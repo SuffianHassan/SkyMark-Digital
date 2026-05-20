@@ -18,15 +18,17 @@ export function Partners() {
       media.find((m) => m.id === imageId)?.mediaUrl || null;
 
 const partners = [
-  { logo: getUrl(brands?.image1?.imageId) || "images/logos/arif.png" },
-  { logo: getUrl(brands?.image2?.imageId) || "images/logos/gdc.png" },
-  { logo: getUrl(brands?.image3?.imageId) || "images/logos/emad.png" },
-  { logo: getUrl(brands?.image4?.imageId) || "images/logos/road.png" },
-  { logo: getUrl(brands?.image5?.imageId) || "images/logos/hamza.jpeg" },
-  { logo: getUrl(brands?.image6?.imageId) || "images/logos/salman.png" },
-  { logo: getUrl(brands?.image7?.imageId) || "images/logos/sf.png" },
-  { logo: getUrl(brands?.image8?.imageId) || "images/logos/st.png" },
-  { logo: getUrl(brands?.image9?.imageId) || "images/logos/gwg.png" },
+  { logo: getUrl(brands?.image1?.imageId)},
+  { logo: getUrl(brands?.image2?.imageId)},
+  { logo: getUrl(brands?.image3?.imageId)},
+  { logo: getUrl(brands?.image4?.imageId)},
+  { logo: getUrl(brands?.image5?.imageId)},
+  { logo: getUrl(brands?.image6?.imageId)},
+  { logo: getUrl(brands?.image7?.imageId)},
+  { logo: getUrl(brands?.image8?.imageId)},
+  { logo: getUrl(brands?.image9?.imageId)},
+  { logo: getUrl(brands?.image10?.imageId)},
+   { logo: getUrl(brands?.image11?.imageId)},
 ]
 
 // duplicate for seamless loop
@@ -67,7 +69,7 @@ const loopPartners = [...partners, ...partners]
               >
                 <div className="relative w-24 h-20 opacity-70 hover:opacity-100 transition">
                   <Image
-                    src={partner.logo}
+                    src={partner.logo || "/images/logo-black.png"}
                     alt="partner logo"
                     fill
                     className="object-contain"

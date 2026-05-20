@@ -117,44 +117,6 @@ export function Hero() {
           </div>
 
           {/* RIGHT VISUAL SECTION */}
-          {/* <div className="relative flex items-center justify-center min-h-[260px] sm:min-h-[320px]">
-            <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] bg-white rounded-2xl shadow-2xl flex items-center justify-center z-10 overflow-hidden transition-transform duration-300 hover:scale-105">
-              <img
-                src="/images/hero-globe.png"
-                alt="Skymark Digital Logo"
-                className="w-full h-full object-contain scale-110 animate-[zoomSlow_18s_ease-in-out_infinite_alternate]"
-              />
-            </div>
-
-            <div className="absolute -top-6 right-45 -translate-x-1/2 animate-float-slow">
-              <div className="bg-white/90 backdrop-blur-md px-5 py-3 rounded-xl shadow-lg text-center">
-                <p className="text-xs text-gray-500">{hero?.heading5?.text}</p>
-                <p className="text-sm font-bold text-blue-600">{hero?.heading6?.text}</p>
-              </div>
-            </div>
-
-            <div className="absolute left-1/2 -translate-x-[140px] sm:-translate-x-[180px] md:-translate-x-[220px] top-[65%] -translate-y-1/2 animate-float-slow delay-500">
-              <div className="bg-white/90 backdrop-blur-md px-3 py-3 rounded-xl shadow-lg text-center">
-                <p className="text-xs text-gray-500">{hero?.heading7?.text}</p>
-                <p className="text-sm font-bold text-red-500">{hero?.heading8?.text}</p>
-              </div>
-            </div>
-
-            <div className="absolute left-1/3 translate-x-[140px] sm:translate-x-[180px] md:translate-x-[240px] -translate-y-2/3 animate-float-slow delay-400">
-              <div className="bg-white/90 backdrop-blur-md px-3 py-3 rounded-xl shadow-lg text-center">
-                <p className="text-xs text-gray-500">{hero?.heading9?.text}</p>
-                <p className="text-sm font-bold text-green-600">{hero?.heading10?.text}</p>
-              </div>
-            </div>
-
-            <div className="absolute top-[92%] left-70 -translate-x-1/2 animate-float-slow delay-300">
-              <div className="bg-white/90 backdrop-blur-md px-4 py-3 rounded-xl shadow-lg text-center">
-                <p className="text-xs text-gray-500">{hero?.heading11?.text}</p>
-                <p className="text-sm font-bold text-orange-500">{hero?.heading12?.text}</p>
-              </div>
-            </div>
-          </div> */}
-
           <div className="relative flex items-center justify-center min-h-[620px] md:min-h-[420px] sm:min-h-[380px] w-full overflow-visible">
 
             {/* BACKGROUND GLOW */}
@@ -162,8 +124,10 @@ export function Hero() {
             <div className="absolute w-[420px] h-[420px] rounded-full bg-purple-500/10 blur-3xl" />
 
             {/* OUTER ORBIT RINGS */}
-            <div className="absolute w-[340px] h-[340px] md:w-[520px] md:h-[420px] rounded-full border border-cyan-400/25" />
-            <div className="absolute w-[260px] h-[260px] md:w-[420px] md:h-[320px] rounded-full border border-white/10" />
+            {/* <div className="absolute w-[340px] h-[340px] md:w-[520px] md:h-[420px] rounded-full border border-cyan-400/25" /> */}
+            <div className="absolute w-[340px] h-[340px] md:w-[520px] md:h-[520px] rounded-full border border-cyan-400/25" />
+            {/* <div className="absolute w-[260px] h-[260px] md:w-[420px] md:h-[320px] rounded-full border border-white/10" /> */}
+            <div className="absolute w-[260px] h-[260px] md:w-[420px] md:h-[420px] rounded-full border border-white/10" />
 
             {/* MAIN ORBIT CONTAINER */}
             <div className="relative w-[340px] h-[340px] md:w-[520px] md:h-[520px] animate-orbit">
@@ -186,19 +150,17 @@ export function Hero() {
                 const total = 12
                 const angle = (360 / total) * i
                 const radius = typeof window !== "undefined" && window.innerWidth < 768
-                  ? 145
+                  ? 135
                   : 235
 
                 return (
                   <div
                     key={i}
-                    className="absolute left-1/2 top-1/2"
+                    // className="absolute left-1/2 top-1/2"
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
                     style={{
-                      transform: `
-                      rotate(${angle}deg)
-                      translateX(${radius}px)
-                    `,
-                      transformOrigin: "center",
+                      transform: `rotate(${angle}deg) translateX(${radius}px)`,
+                      transformOrigin: 'center center',
                     }}
                   >
 
@@ -275,40 +237,6 @@ export function Hero() {
                 <div className="absolute w-[170px] h-[170px] md:w-[280px] md:h-[280px] rounded-full border border-cyan-400/20" />
                 <div className="absolute w-[150px] h-[150px] md:w-[250px] md:h-[250px] rounded-full border border-purple-400/20" />
 
-                {/* CENTER CORE */}
-                {/* <div className={`
-                    relative
-                    w-[140px] h-[140px] md:w-[220px] md:h-[220px]
-                    rounded-full
-                    bg-gradient-to-br
-                    from-cyan-400
-                    via-blue-500
-                    to-amber-300
-                    flex
-                    items-center
-                    justify-center
-                    shadow-[0_0_90px_rgba(34,211,238,0.35)]
-                  `}>
-
-                  <div className="absolute inset-[8px] rounded-full bg-[#001A33]/90 border border-white/10 backdrop-blur-xl" />
-
-                  <div className="relative z-10 text-center px-6">
-                    <h2 className={`
-                      text-white
-                      text-[11px] md:text-[20px]
-                      font-bold
-                      uppercase
-                      tracking-[0.08em] md:tracking-[0.15em]
-                      leading-tight
-                    `}>
-                      Digital
-                      <br />
-                      Growth
-                      <br />
-                      Engine
-                    </h2>
-                  </div>
-                </div> */}
                 <div className="relative z-10 flex items-center justify-center w-[140px] h-[140px] md:w-[220px] md:h-[220px] overflow-hidden rounded-full">
 
                   <div className={`

@@ -69,7 +69,7 @@ export function Services() {
       description: service?.paragraph2?.text,
       href: "/services/digital-marketing",
       color: "bg-gradient-to-br from-blue-500 via-sky-700 to-cyan-400",
-      image: getUrl(service?.image1?.imageId) || "/images/marketing.jpg"
+      image: getUrl(service?.image1?.imageId) || "/images/marketing.png"
     },
     {
       icon: FaLaptopCode,
